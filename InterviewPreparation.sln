@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.21805.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewPreparation", "InterviewPreparation.csproj", "{6ECD382C-319C-44BB-A255-49DCA9B20260}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theranos", "C:\Users\subasb\OneDrive\Documents\InterviewPreparation\Theranos\Theranos.csproj", "{624C554B-0D85-487D-8D1B-F1D967383545}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlbumInfo", "AlbumInfo\AlbumInfo.csproj", "{025F1BCB-616E-41EA-9857-2D83A90D7788}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6ECD382C-319C-44BB-A255-49DCA9B20260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ECD382C-319C-44BB-A255-49DCA9B20260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ECD382C-319C-44BB-A255-49DCA9B20260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ECD382C-319C-44BB-A255-49DCA9B20260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{624C554B-0D85-487D-8D1B-F1D967383545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{624C554B-0D85-487D-8D1B-F1D967383545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{624C554B-0D85-487D-8D1B-F1D967383545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{624C554B-0D85-487D-8D1B-F1D967383545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{025F1BCB-616E-41EA-9857-2D83A90D7788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{025F1BCB-616E-41EA-9857-2D83A90D7788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{025F1BCB-616E-41EA-9857-2D83A90D7788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{025F1BCB-616E-41EA-9857-2D83A90D7788}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

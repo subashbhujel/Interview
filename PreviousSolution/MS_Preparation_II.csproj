@@ -1,0 +1,78 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A17355CF-9CE8-491C-B6A3-9A017DAD3490}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MS_Preparation_II</RootNamespace>
+    <AssemblyName>MS_Preparation_II</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BST.cs" />
+    <Compile Include="BSTWithParentNode.cs" />
+    <Compile Include="CheckHowManyBitsRSet.cs" />
+    <Compile Include="CheckNumOfPalinsInASentence.cs" />
+    <Compile Include="CombinationOfChars.cs" />
+    <Compile Include="ConvertIntToStr.cs" />
+    <Compile Include="DoublyLinkedList.cs" />
+    <Compile Include="Factorial.cs" />
+    <Compile Include="FindNthLargestEleInArray.cs" />
+    <Compile Include="FindStringInArrOfStringIfMatches.cs" />
+    <Compile Include="FindSubStrintheGivenStrFromLast.cs" />
+    <Compile Include="FindUniqCharsFromTwoArr.cs" />
+    <Compile Include="FindWeekDayFromDate.cs" />
+    <Compile Include="FirstNonRepeatCharInStr.cs" />
+    <Compile Include="InorderQuickSort.cs" />
+    <Compile Include="MergeTwoSortedArray.cs" />
+    <Compile Include="FindSqRoot.cs" />
+    <Compile Include="MsPreparationIIAprl\Main.cs" />
+    <Compile Include="ShiftArray.cs" />
+    <Compile Include="PhoneDictionery.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadNWriteTxtFile.cs" />
+    <Compile Include="ReplaceStrWithoutAnyAPI.cs" />
+    <Compile Include="ReturnMaxRepeatedWord.cs" />
+    <Compile Include="ReverseAWord.cs" />
+    <Compile Include="ReverseString.cs" />
+    <Compile Include="SinglyLinkedList.cs" />
+    <Compile Include="StringToUpperManually.cs" />
+    <Compile Include="StrStateDelimit.cs" />
+    <Compile Include="StrToASCII.cs" />
+    <Compile Include="StrToNum.cs" />
+    <Compile Include="SumOfTwoLargestNumInArray.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
