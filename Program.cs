@@ -28,9 +28,9 @@ namespace InterviewPreparation
             //Console.WriteLine("Longest Palindrome is : "+strOpe.FindLongestPalindrome("ababbax"));
 
             //strOpe.RotateAnArray(new int[] { 1, 2, 3, 4, 5 }, 3);
-            Console.WriteLine(strOpe.FindMedianOf3Nums(3, 2, -1));
+            //Console.WriteLine(strOpe.FindMedianOf3Nums(3, 2, -1));
 
-            strOpe.ConcatSrting(new string[] { "ABC", "DEF", "CAD" });
+            strOpe.ConcatSrting(new string[] { "ABC", "DEF", "CAD" }, 3);
 
             #region Stack Operations
 

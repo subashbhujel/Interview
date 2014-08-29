@@ -1,12 +1,13 @@
-﻿using System;
-using System.Threading;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InterviewPreparation
+﻿namespace InterviewPreparation
 {
+    using System;
+    using System.Threading;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// All numeric, array and string operations
+    /// </summary>
     class StringOperation
     {
         /// <summary>
@@ -21,37 +22,76 @@ namespace InterviewPreparation
         ///     second first third
         ///     dfgs sdfg ghjhk(characters at concatenation points are same)
         ///     so concatenated string is-dfgsdfghjhk
+        /// 
+        /// Assumptions:
+        ///     1. As soon as "nuber of Strings" is satisfied, program exits. ie it doesn't bother checking mroe string in an array.
+        /// 
+        /// // NOT SOLVED YET!!
         /// </summary>
-        public string ConcatSrting(string[] strArr)
+        public string ConcatSrting(string[] strArr, int numOfStrings)
         {
-            if (null == strArr || strArr.Length < 1)
+            if (null == strArr || strArr.Length < 1 || numOfStrings <= 0)
             {
                 return null;
             }
 
             int len = strArr.Length;
 
-            if (len == 1)
+            if (len == 1 || numOfStrings == 1)
             {
                 return strArr[0];
             }
 
-            char[] startingChars = new char[len];
-            char[] endingChars = new char[len];
+            char startingChar, endingChar;
 
-            Dictionary<char, char> startEndChars = new Dictionary<char, char>();
+            // Storing the final strings to be concatenated
+            Queue<string> list = new Queue<string>();
 
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i < strArr.Length; i++)
             {
-                startingChars[i] = strArr[i][0];
-                endingChars[i] = strArr[i][strArr[i].Length - 1];
+                startingChar = strArr[i][0];
+                endingChar = strArr[i][strArr[i].Length - 1];
 
-                startEndChars.Add(startingChars[i], endingChars[i]);
+                list.Enqueue(strArr[i]);
+
+                for (int j = i + 1; j < strArr.Length; j++)
+                {
+                    if (endingChar == strArr[j][0])
+                    {
+                        list.Enqueue(strArr[j]);
+                    }
+                }
+
+                if (strArr[i] != string.Empty)
+                {
+                    list.Enqueue(strArr[i]);
+                    strArr[i] = string.Empty;
+                }
             }
+
+            //char[] startingChars = new char[len];
+            //char[] endingChars = new char[len];
+
+            //Dictionary<char, char> startEndChars = new Dictionary<char, char>();
+
+            //for (int i = 0; i < len; i++)
+            //{
+            //    startingChars[i] = strArr[i][0];
+            //    endingChars[i] = strArr[i][strArr[i].Length - 1];
+
+            //    startEndChars.Add(startingChars[i], endingChars[i]);
+            //}
             string concatStr = string.Empty;
 
             return concatStr;
         }
+
+        /// <summary>
+        /// NOT SOLVED YET!!
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         public int CompareTwoIntWithBitwiseOpe(int a, int b)
         {
             int diff = a - b;
@@ -131,7 +171,7 @@ namespace InterviewPreparation
         public void RotateAnArray(int[] arr, int rotateBy)
         {
             // Pseudo code:
-            // A = 1 2 3 4 5 , rotateBy=2
+            // A = 1 2 3 4 5 , rotateBy = 2
             // A' = 5 4 3 2 1 = B
             // B' (0, a.length - rotateBy) = 3 4 5 2 1 = C
             // C' (a.length - rotateBy, rotateBy) = {3 4 5 1 2}  
@@ -151,6 +191,14 @@ namespace InterviewPreparation
 
             Print(arr);
         }
+
+        /// <summary>
+        /// Helper method for the reversing certain position of an array
+        /// </summary>
+        /// <param name="arr">Array to be reversed</param>
+        /// <param name="start">Starting index for reversal</param>
+        /// <param name="end">Ending index for reversal</param>
+        /// <returns></returns>
         public int[] ReverseCertainPosition(int[] arr, int start, int end)
         {
             int temp;
@@ -167,8 +215,11 @@ namespace InterviewPreparation
             return arr;
         }
 
-
-        // Q : Reverse a string 
+        /// <summary>
+        /// Q : Reverse a string 
+        /// </summary>
+        /// <param name="word">String to be reversed.</param>
+        /// <returns>Reversed string</returns>
         public string ReverseString(string word)
         {
             if (word == string.Empty || word == null)
@@ -231,6 +282,10 @@ namespace InterviewPreparation
             return sb.ToString();
         }
 
+        /// <summary>
+        ///  Prints a Char array
+        /// </summary>
+        /// <param name="arr"></param>
         public void Print(char[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
@@ -240,6 +295,10 @@ namespace InterviewPreparation
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Prints an integer array
+        /// </summary>
+        /// <param name="arr"></param>
         public void Print(int[] arr)
         {
             Console.WriteLine();
@@ -530,6 +589,7 @@ namespace InterviewPreparation
             Console.WriteLine("- Alive! \n");
             return true;
         }
+
         private int[,] CreateanIsland(int m, int n)
         {
             int[,] island = new int[m, n];
