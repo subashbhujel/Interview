@@ -16,6 +16,39 @@ namespace InterviewPreparation.BST
         }
 
         /// <summary>
+        /// Copied the solution here: http://leetcode.com/2010/09/printing-binary-tree-in-level-order.html
+        /// Level by level traversal is known as Breadth-first traversal. 
+        /// Using a Queue is the proper way to do this. If you wanted to do a depth first traversal you would use a stack.
+        /// The way you have it is not quite standard though. Here's how it should be.
+        /// </summary>
+        public void PrintLevelByLevel()
+        {
+            Queue<Node> queue = new Queue<Node>();
+
+            if (IsEmpty())
+            {
+                Console.WriteLine("Empty BST");
+                return;
+            }
+            Console.WriteLine("Printing Level-By-Level");
+
+            queue.Enqueue(root);
+
+            while (queue.Count > 0)
+            {
+                temp = queue.Dequeue();
+                Console.Write(temp.data + " ");
+
+                if (temp.left != null)
+                    queue.Enqueue(temp.left);
+
+                if (temp.right != null)
+                    queue.Enqueue(temp.right);
+            }
+
+        }
+
+        /// <summary>
         /// Copied the solution from: http://leetcode.com/2010/09/determine-if-binary-tree-is-binary.html
         ///     Solution is to do an in-order traversal of the binary tree, and verify that the previous value 
         ///     (can be passed into the recursive function as reference) is less than the current value. 
