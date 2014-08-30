@@ -108,9 +108,11 @@ namespace InterviewPreparation
 
             bst.Print();
 
-            Console.WriteLine(bst.Find(15) ? "Found!" : "Not Found!");
+            Console.WriteLine("The Height of BST is: " + bst.FindTheHeight());
 
-            bst.PrintLevelByLevel();
+            //Console.WriteLine(bst.Find(15) ? "Found!" : "Not Found!");
+
+            //bst.PrintLevelByLevel();
             //bst.IsBST();
 
             #endregion

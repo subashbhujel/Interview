@@ -20,26 +20,50 @@ namespace InterviewPreparation.BST
         /// Approach is to use Queue 
         /// </summary>
         /// <returns>The depth of a BST.</returns>
-        public int FindTheDepth()
+        public int FindTheHeight()
         {
-            int level = 0;
+            int height = 0;
+
             if (root == null)
             {
                 Console.WriteLine("Empty BST.");
-                return level;
+                return height;
             }
 
             Queue<Node> queue = new Queue<Node>();
 
             queue.Enqueue(root);
+            int numOfEleInQueue = 0;
 
-            while (queue.Count > 0)
+            while (true)
             {
-                Node n = queue.Dequeue();
-                level++;
+                numOfEleInQueue = queue.Count;
 
+                if (numOfEleInQueue == 0)
+                {
+                    return height;
+                }
+
+                height++;
+
+                // Dequeue the node and insert its childrens
+                // Dequeur only the nodes in that leevl
+                while (numOfEleInQueue > 0)
+                {
+                    // Remove the node
+                    Node temp = queue.Dequeue();
+
+                    // Add its childrens
+                    if (temp.left != null)
+                        queue.Enqueue(temp.left);
+
+                    if (temp.right != null)
+                        queue.Enqueue(temp.right);
+
+                    numOfEleInQueue--;
+                }
             }
-            return level;
+            return height;
         }
 
         /// <summary>
