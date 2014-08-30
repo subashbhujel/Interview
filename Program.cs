@@ -30,6 +30,10 @@ namespace InterviewPreparation
             //strOpe.RotateAnArray(new int[] { 1, 2, 3, 4, 5 }, 3);
             //Console.WriteLine(strOpe.FindMedianOf3Nums(3, 2, -1));
 
+            //strOpe.FindASqRoot(1f);
+            // strOpe.RearrangeArrayBySwappingWithZero(new int[] { 0, 1, 2, 3,5 }, new int[] { 0, 5,1, 2, 3 });
+            //Console.WriteLine(strOpe.FindIfStringHAsUniqueChars(""));
+
             strOpe.ConcatSrting(new string[] { "ABC", "DEF", "CAD" }, 3);
 
             #region Stack Operations
@@ -51,6 +55,7 @@ namespace InterviewPreparation
             //Console.WriteLine("The max number is : " + stack.GetMax());
 
             #endregion
+
             #region Linked List
 
             /*
@@ -78,7 +83,7 @@ namespace InterviewPreparation
             //ll.CreateACycle(2);
             // ll.PrintTheLengthOfCyclicList();
             //Console.WriteLine(ll.FindIfCyclic() ? "Yes its cyclic." : "No, Its not a cyclicc");
-
+            //ll.RotateTheList(6);
             //ll.ReverseAList();
             //ll.SwapPosition(0);
 
@@ -105,6 +110,7 @@ namespace InterviewPreparation
 
             //Console.WriteLine(bst.Find(15) ? "Found!" : "Not Found!");
 
+            //bst.PrintLevelByLevel();
             //bst.IsBST();
 
             #endregion

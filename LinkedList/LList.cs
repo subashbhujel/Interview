@@ -139,6 +139,96 @@ namespace InterviewPreparation
         }
 
         /// <summary>
+        /// input  : 10->20->30->40->50,
+        /// output : 30->40->50->10->20 (for num = 2) 
+        /// </summary>
+        /// <param name="num"></param>
+        public void RotateTheList(int num)
+        {
+            if (IsListEmpty() || num <= 0)
+            {
+                Console.WriteLine("List is empty or Invalid number.");
+                return;
+            }
+
+            Console.WriteLine("\nAttempting to rotate by " + num);
+            int count = num;
+            temp1 = head;
+
+            while (count > 1)
+            {
+                if (temp1.next == null)
+                {
+                    Console.WriteLine("\nCANNOT rotate by " + num + "\n");
+                    return;
+                }
+                temp1 = temp1.next;
+                count--;
+            }
+
+            temp2 = temp1;
+
+            while (temp2.next != null)
+            {
+                temp2 = temp2.next;
+            }
+
+            Node temp3 = head;
+
+            while (temp3.next != temp1 && temp3 != temp1)
+            {
+                temp3 = temp3.next;
+            }
+
+            //Rotating
+            temp2.next = head;
+            head = temp1.next;
+            temp1.next = null;
+
+        }
+
+        /// <summary>
+        /// With a pointer to head node of a linked list as argument, write a function to swap the consecutive elements of the list and return the head node. 
+        /// (Do note change values of any node, only change the links.)
+        /// Example :-1->2->3->4->5->6->7
+        ///         2->1->4->3->6->5->7
+        /// </summary>
+        public void SwapEvery2Nodes()
+        {
+            if (IsListEmpty())
+            {
+                Console.WriteLine("List is EMPTY");
+                return;
+            }
+
+            // Case 1:  1 Node only
+            if (head.next == null)
+            {
+                return;
+            }
+            else
+            {
+                temp1 = head;
+                temp2 = temp1.next;
+
+                while (temp2.next != null)
+                {
+                    Swap(temp1, temp2);
+
+                    temp1 = temp2.next;
+                    if (temp1.next == null)
+                    {
+                        return;
+                    }
+                    else
+                        temp2 = temp1.next;
+                }
+                Swap(temp1, temp2);
+            }
+
+        }
+
+        /// <summary>
         /// Q1.- Written exam (Amazon, Bangalore)
         /// Given a singly link list and a number 'K', swap the Kth node from the start with the Kth node from the last. Check all the edge cases.
         /// Sample Input: 1->2->3->4->5->6->7->8 and K = 3

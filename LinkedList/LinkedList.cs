@@ -20,8 +20,7 @@ namespace InterviewPreparation
             //Display(sentence, "The linked list values:");
             return sentence;
         }
-
-
+        
         /// <summary>
         /// Solution: Use two pointers - slow and fast
         /// 1. Slow pointer moves 1 pointer while Fast moves 2 pointer
@@ -45,6 +44,7 @@ namespace InterviewPreparation
             }
             return "Invalid LinkedList";
         }
+       
         public void Display(LinkedList<string> linkedList)
         {
             LinkedListNode<string> head = linkedList.First;

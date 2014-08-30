@@ -11,6 +11,172 @@
     class StringOperation
     {
         /// <summary>
+        /// "Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?"
+        /// For eg: "ABCDEF" = True
+        ///  ABCDEFA = FALSE
+        ///  ACBDEFF = FALSE
+        ///  SUBAH= True
+        /// </summary>
+        /// <param name="str"></param>
+        public bool FindIfStringHAsUniqueChars(string str)
+        {
+            // Its a tricky solution:
+            // Check if the position of each character of string is the last position of that string. If not, that string does NOT have unique chars
+            if (string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str) || str == string.Empty)
+            {
+                Console.WriteLine("Invalid String.");
+                return false;
+            }
+
+            bool isUnique = false;
+
+            foreach (char c in str)
+            {
+                if (str.IndexOf(c) == str.LastIndexOf(c))
+                {
+                    isUnique = true;
+                    continue;
+                }
+                else
+                {
+                    isUnique = false;
+                    break;
+                }
+            }
+            return isUnique;
+        }
+
+        /// <summary>
+        /// Rearrange an array using swap with 0. 
+        /// You have two arrays src, tgt, containing two permutations of the numbers 0..n-1. 
+        /// You would like to rearrange src so that it equals tgt. The only allowed operations is “swap a number with 0”, e.g. {1,0,2,3} -> {1,3,2,0} (“swap 3 with 0”). 
+        /// Write a program that prints to stdout the list of required operations.
+        /// Practical application: Imagine you have a parking place with n slots and n-1 cars numbered from 1..n-1. 
+        /// The free slot is represented by 0 in the problem. If you want to rearrange the cars, you can only move one car at a time into the empty slot, which is equivalent to “swap a number with 0”.
+        /// Example: src={1,0,2,3}; tgt={0,2,3,1};
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="destination"></param>
+        
+        public void RearrangeArrayBySwappingWithZero(int[] source, int[] destination)
+        {
+            // Example: src={1,0,2,3}; tgt={2,1,3,0};           
+            // Approach : 
+            //            The question does not require the minimum swap number.
+            //  So, an easy way to do is, find the index of first does not match (except ZERO),
+            //  then swap ZERO with it, then swap ZERO with the tgt value of that index.
+            //  Just loop for all positions. Then, it is done.
+            //  eg. {0, 1, 2} -> {0, 2, 1}
+            //  first does not match index is 1, and tgt value is 2.
+            //  So, {0, 1, 2}-> {1, 0, 2}->{1, 2, 0}
+            //If it require the minimum swap number, then, shortest path algorithm will resolve it.
+            //Every permutation is one node, and all possible links are just a swap of ZERO.
+            //For performance improvement, A* can be used.
+            //So, never swap ZERO with any value that matched already.
+            //And it is better to generate nodes in run time.
+
+            if (source == null || destination == null)
+                return;
+
+            int len1 = source.Length, len2 = destination.Length;
+
+            if (len1 <= 0 || len2 <= 0)
+            {
+                Console.WriteLine("Invalid Input.");
+                return;
+            }
+
+            //Find an index of Zero in Source
+            int indexOf0 = 0;
+            for (int i = 0; i < source.Length; i++)
+            {
+                if (source[i] == 0)
+                {
+                    indexOf0 = i;
+                    break;
+                }
+
+            }
+            Console.WriteLine("Source Array: ");
+            Print(source);
+
+            Console.WriteLine("Desrination Array: ");
+            Print(destination);
+
+            Queue<string> operations = new Queue<string>();
+
+            for (int i = 0; i < source.Length; i++)
+            {
+                if (source[i] != destination[i] && destination[i] != 0)
+                {
+                    // Swap with Zero
+                    operations.Enqueue(string.Format("Swap {0} with 0", source[i]));
+                    source = Swap(source, i, indexOf0);
+                    indexOf0 = i;
+
+                    // Swap with target value                    
+                    int targetValueIndexInSource = FindTargetIndex(source, destination[i]);
+
+                    operations.Enqueue(string.Format("Swap {0} with 0", source[targetValueIndexInSource]));
+                    source = Swap(source, indexOf0, targetValueIndexInSource);
+                    indexOf0 = targetValueIndexInSource;
+                }
+            }
+
+            while (operations.Count != 0)
+            {
+                Console.WriteLine(operations.Dequeue());
+            }
+
+            Print(source);
+        }
+        
+        /// <summary>
+        /// Swap the value in a given range
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="i"></param>
+        /// <param name="j"></param>
+        /// <returns></returns>
+        private int[] Swap(int[] arr, int i, int j)
+        {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+
+            return arr;
+        }
+
+        private int FindTargetIndex(int[] arr, int n)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == n)
+                { return i; }
+            }
+            return -1;
+        }
+        
+        public void FindASqRoot(float num)
+        {
+            if (num <= 0)
+            {
+                Console.WriteLine("Invalid input. Please enter non-negative number.");
+                return;
+            }
+
+            float result = 1;
+
+            while ((result * result - num) > 0.000001 || (num - result * result) > 0.000001)
+            {
+                result = (result + num / result) / 2;
+                Console.WriteLine("New value: " + result);
+            }
+
+            Console.WriteLine(string.Format("Square root of {0} is : {1}", num, result));
+        }
+
+        /// <summary>
         /// you are given n-strings 1you have to find whether a chain can be termed with all the strings given number n? 
         /// A chain can be formed b/w strings if last char of the 1st string matches with 1st char of second string. 
         /// For example you are given
