@@ -86,6 +86,19 @@ namespace InterviewPreparation
         }
 
         /// <summary>
+        /// Swap two nodes
+        /// </summary>
+        /// <param name="n1"></param>
+        /// <param name="n2"></param>
+        private void Swap(Node n1, Node n2)
+        {
+            int val = n1.val;
+            n1.val = n2.val;
+            n2.val = val;
+        }
+
+
+        /// <summary>
         ///  Find if the list is cyclic
         /// </summary>
         /// <returns></returns>
