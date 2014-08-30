@@ -16,6 +16,33 @@ namespace InterviewPreparation.BST
         }
 
         /// <summary>
+        /// Find the depth of BST.
+        /// Approach is to use Queue 
+        /// </summary>
+        /// <returns>The depth of a BST.</returns>
+        public int FindTheDepth()
+        {
+            int level = 0;
+            if (root == null)
+            {
+                Console.WriteLine("Empty BST.");
+                return level;
+            }
+
+            Queue<Node> queue = new Queue<Node>();
+
+            queue.Enqueue(root);
+
+            while (queue.Count > 0)
+            {
+                Node n = queue.Dequeue();
+                level++;
+
+            }
+            return level;
+        }
+
+        /// <summary>
         /// Copied the solution here: http://leetcode.com/2010/09/printing-binary-tree-in-level-order.html
         /// Level by level traversal is known as Breadth-first traversal. 
         /// Using a Queue is the proper way to do this. If you wanted to do a depth first traversal you would use a stack.

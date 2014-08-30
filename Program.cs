@@ -34,7 +34,7 @@ namespace InterviewPreparation
             // strOpe.RearrangeArrayBySwappingWithZero(new int[] { 0, 1, 2, 3,5 }, new int[] { 0, 5,1, 2, 3 });
             //Console.WriteLine(strOpe.FindIfStringHAsUniqueChars(""));
 
-            strOpe.ConcatSrting(new string[] { "ABC", "DEF", "CAD" }, 3);
+            //strOpe.ConcatSrting(new string[] { "ABC", "DEF", "CAD" }, 3);
 
             #region Stack Operations
 
@@ -97,20 +97,20 @@ namespace InterviewPreparation
 
             #region BST
 
-            //BST.BST bst = new BST.BST();
-            //bst.Add(21);
-            //bst.Add(10);
-            //bst.Add(15);
-            //bst.Add(45);
-            //bst.Add(22);
-            //bst.Add(90);
-            //bst.Add(48);
+            BST.BST bst = new BST.BST();
+            bst.Add(21);
+            bst.Add(10);
+            bst.Add(15);
+            bst.Add(45);
+            bst.Add(22);
+            bst.Add(90);
+            bst.Add(48);
 
-            //bst.Print();
+            bst.Print();
 
-            //Console.WriteLine(bst.Find(15) ? "Found!" : "Not Found!");
+            Console.WriteLine(bst.Find(15) ? "Found!" : "Not Found!");
 
-            //bst.PrintLevelByLevel();
+            bst.PrintLevelByLevel();
             //bst.IsBST();
 
             #endregion
