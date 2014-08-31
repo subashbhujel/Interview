@@ -57,7 +57,7 @@
         /// </summary>
         /// <param name="source"></param>
         /// <param name="destination"></param>
-        
+
         public void RearrangeArrayBySwappingWithZero(int[] source, int[] destination)
         {
             // Example: src={1,0,2,3}; tgt={2,1,3,0};           
@@ -130,7 +130,7 @@
 
             Print(source);
         }
-        
+
         /// <summary>
         /// Swap the value in a given range
         /// </summary>
@@ -156,7 +156,7 @@
             }
             return -1;
         }
-        
+
         public void FindASqRoot(float num)
         {
             if (num <= 0)
@@ -747,7 +747,7 @@
                 Console.Write(string.Format("[{0}][{1}]", m, n));
                 int temp = island[m, n];
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine(" - Dead! \n");
                 return false;

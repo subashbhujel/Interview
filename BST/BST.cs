@@ -63,7 +63,6 @@ namespace InterviewPreparation.BST
                     numOfEleInQueue--;
                 }
             }
-            return height;
         }
 
         /// <summary>

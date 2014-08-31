@@ -26,6 +26,7 @@ namespace MS_Preparation_II
             foreach (int i in phNumbers)
             {
                 int num;
+
                 if (i != 0 && i != 1)
                 {
                     num = ranNum.Next(0, 3);

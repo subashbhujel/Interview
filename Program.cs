@@ -97,23 +97,42 @@ namespace InterviewPreparation
 
             #region BST
 
-            BST.BST bst = new BST.BST();
-            bst.Add(21);
-            bst.Add(10);
-            bst.Add(15);
-            bst.Add(45);
-            bst.Add(22);
-            bst.Add(90);
-            bst.Add(48);
+            //BST.BST bst = new BST.BST();
+            //bst.Add(21);
+            //bst.Add(10);
+            //bst.Add(15);
+            //bst.Add(45);
+            //bst.Add(22);
+            //bst.Add(90);
+            //bst.Add(48);
 
-            bst.Print();
+            //bst.Print();
 
-            Console.WriteLine("The Height of BST is: " + bst.FindTheHeight());
+            //Console.WriteLine("The Height of BST is: " + bst.FindTheHeight());
 
             //Console.WriteLine(bst.Find(15) ? "Found!" : "Not Found!");
 
             //bst.PrintLevelByLevel();
             //bst.IsBST();
+
+            #endregion
+
+            #region Array
+
+            ArrayOp.ArrayOperations arrayOperations = new ArrayOp.ArrayOperations();
+            
+            /// <summary>
+            ///  Q. Given two sorted array in ascending order with same length N, calculate the Kth min a[i]+b[j]. 
+            ///  Time complexty O(N).
+            ///  Array #1 : {1,6,13,20}
+            ///  Array #2 : {2,6,20,50}
+            ///  Find 3rd minimum value. Ans: 6
+            ///  Find 4th minimum value. Ans: 13
+            /// Assumption: Both array is of equal length (irrelavant). Array is of equal length.
+            /// </summary>            
+            int k = 3;
+            int min = arrayOperations.FindTheKthElement(new int[] { 1, 6, 13, 20 }, new int[] { 2, 6, 20, 60 }, k);
+            Console.WriteLine(min == int.MinValue ? k + "th value doesn't exist" : "Minimun value is: " + min);
 
             #endregion
         }
