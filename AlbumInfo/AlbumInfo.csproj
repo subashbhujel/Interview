@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Service1.svc" />
+    <Content Include="Songs.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
