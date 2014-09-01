@@ -120,7 +120,9 @@ namespace InterviewPreparation
             #region Array
 
             ArrayOp.ArrayOperations arrayOperations = new ArrayOp.ArrayOperations();
-            
+
+            Console.WriteLine(arrayOperations.FindMinSequence(new int[] { 2,1,3,2,7,1 }, 10));
+
             /// <summary>
             ///  Q. Given two sorted array in ascending order with same length N, calculate the Kth min a[i]+b[j]. 
             ///  Time complexty O(N).
@@ -130,9 +132,9 @@ namespace InterviewPreparation
             ///  Find 4th minimum value. Ans: 13
             /// Assumption: Both array is of equal length (irrelavant). Array is of equal length.
             /// </summary>            
-            int k = 3;
-            int min = arrayOperations.FindTheKthElement(new int[] { 1, 6, 13, 20 }, new int[] { 2, 6, 20, 60 }, k);
-            Console.WriteLine(min == int.MinValue ? k + "th value doesn't exist" : "Minimun value is: " + min);
+            //int k = 3;
+            //int min = arrayOperations.FindTheKthElement(new int[] { 1, 6, 13, 20 }, new int[] { 2, 6, 20, 60 }, k);
+            //Console.WriteLine(min == int.MinValue ? k + "th value doesn't exist" : "Minimun value is: " + min);
 
             #endregion
         }

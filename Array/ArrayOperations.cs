@@ -19,7 +19,7 @@ namespace InterviewPreparation.ArrayOp
         /// <returns></returns>
         public int FindMinSequence(int[] arr, int sum)
         {
-            // INCOMPLETE !!
+            // INCOMPLETE Has Bugs!!
             if (arr == null)
             {
                 Console.WriteLine("Invaid (null) Array.");
@@ -34,7 +34,43 @@ namespace InterviewPreparation.ArrayOp
                 return int.MinValue;
             }
 
-            return int.MinValue;
+            int aggSum = 0;
+            int minlen = int.MaxValue;
+
+            List<int> sliding_window = new List<int>();
+
+            for (int i = 0; i < len; i++)
+            {
+                aggSum += arr[i];
+                //sliding_window.Add(arr[i]);
+
+                if (aggSum > sum)
+                {
+                    continue;
+                }
+                else
+                {
+                    sliding_window.Add(arr[i]);
+                    for (int j = i + 1; j < len; j++)
+                    {
+                        //templen++;
+                        aggSum += arr[j];
+                        if (aggSum > sum)
+                        {
+                            if (sliding_window.Count < minlen)
+                                minlen = sliding_window.Count;
+                            else
+                            {
+                                sliding_window.Clear();
+                            }
+                            aggSum = 0;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return minlen;
         }
 
         /// <summary>
