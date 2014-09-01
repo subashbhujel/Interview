@@ -10,6 +10,34 @@ namespace InterviewPreparation.ArrayOp
     {
 
         /// <summary>
+        /// Determine minimum sequence of adjacent values in the input parameter array that is greater than input parameter sum.
+        /// Eg Array 2,1,1,4,3,6. and Sum is 8
+        /// Answer is 2, because 3,6 is minimum sequence greater than 8.
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="sum"></param>
+        /// <returns></returns>
+        public int FindMinSequence(int[] arr, int sum)
+        {
+            // INCOMPLETE !!
+            if (arr == null)
+            {
+                Console.WriteLine("Invaid (null) Array.");
+                return int.MinValue;
+            }
+
+            int len = arr.Length;
+
+            if (len < 1)
+            {
+                Console.WriteLine("Invalid array.");
+                return int.MinValue;
+            }
+
+            return int.MinValue;
+        }
+
+        /// <summary>
         ///  Given two sorted array in ascending order with same length N, calculate the Kth min a[i]+b[j]. 
         ///  Time complexty O(N).
         ///  Array #1 : {1,6,13,20}
