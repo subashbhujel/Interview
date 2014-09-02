@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Xml;
+using System.Xml.Linq;
 using System.IO;
 
 namespace AlbumInfo
@@ -35,10 +36,14 @@ namespace AlbumInfo
     {
         const string songsFilePath = @"C:\Users\Subash\Documents\GitHub\Interview\AlbumInfo\Songs.xml";
 
-        public string GetData(int value)
+        public bool AddSong(string name, string length)
         {
-            return ReadSongs(songsFilePath);
-            //return string.Format("You entered: {0}", value);
+            return AddSongs(name, length);
+        }
+
+        public List<string> GetData(string albumName)
+        {
+            return GetAlbumDetails(albumName);
         }
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)
@@ -54,23 +59,38 @@ namespace AlbumInfo
             return composite;
         }
 
-        private string ReadSongs(string songsFilePath)
+        /// <summary>
+        /// Get album details by name. (Return information about Songs in album.)
+        /// </summary>
+        /// <param name="songsFilePath"></param>
+        /// <returns></returns>
+        private List<string> GetAlbumDetails(string albumName)
         {
+            List<string> albumInfo = new List<string>();
+
             try
             {
                 XmlReader xmlReader = XmlReader.Create(songsFilePath);
-                while (xmlReader.Read())
+                XDocument doc2 = XDocument.Load(xmlReader);
+
+
+                foreach (var artist in doc2.Root.Descendants("artist"))
                 {
-                    switch (xmlReader.Name)
+                    foreach (var album in artist.Descendants("album"))
                     {
-                        case "artist":
-                            return xmlReader["name"];
-                        case "album":
-                            return xmlReader["title"];;
-                        default:
-                            break;
+                        if (album.Attribute("title").Value.ToString().ToLower() == albumName.ToLower())
+                        {
+                            albumInfo.Add("Artist : " + artist.Attribute("name").Value.ToString());
+
+                            foreach (var song in album.Descendants("song"))
+                            {
+                                albumInfo.Add(string.Format("Title : {0}; Length: {1}", song.Attribute("title").Value.ToString(),
+                                                                                     song.Attribute("length").Value.ToString()));
+                            }
+                        }
                     }
                 }
+
             }
             catch (FileNotFoundException)
             {
@@ -81,7 +101,60 @@ namespace AlbumInfo
             {
                 throw new Exception(e.Message);
             }
-            return "nothing";
+            return albumInfo;
+        }
+
+        /// <summary>
+        ///     Add songs to an album
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        private bool AddSongs(string name, string length)
+        {
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(length) ||
+                string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(length))
+            {
+                return false;
+            }
+
+            try
+            {
+                XmlDocument xDoc = new XmlDocument();
+                xDoc.Load(songsFilePath);
+
+                foreach (XmlNode xNode in xDoc.SelectNodes("//album"))
+                {
+                    XmlElement newSong = xDoc.CreateElement("song");
+
+                    XmlAttribute songName = xDoc.CreateAttribute("title");
+                    songName.Value = name;
+
+                    XmlAttribute songLength = xDoc.CreateAttribute("length");
+                    songLength.Value = length;
+
+                    XmlAttribute songId = xDoc.CreateAttribute("Id");
+                    songId.Value = "100";
+
+                    newSong.Attributes.Append(songName);
+                    newSong.Attributes.Append(songLength);
+                    newSong.Attributes.Append(songId);
+
+                    xNode.AppendChild(newSong);
+                    xNode.InnerText = "myInnerText";
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private string GetAlbumName(string songName)
+        {
+            return string.Empty;
         }
     }
 }

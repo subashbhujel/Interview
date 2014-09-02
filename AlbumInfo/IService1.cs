@@ -14,7 +14,10 @@ namespace AlbumInfo
     {
 
         [OperationContract]
-        string GetData(int value);
+        List<string> GetData(string albumName);
+
+        [OperationContract]
+        bool AddSong(string name, string length);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);

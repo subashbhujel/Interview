@@ -25,4 +25,10 @@
       <song title="The Tourist"  length="5:24" SongId="12"/>
     </album>
   </artist>
+  <artist name="Maroon 5">
+    <album title="Love of the century" Id="1">
+      <song title="Bloomberg" length="5:15" SongId="1"/>
+      <song title="Morning Love" length="4:41" SongId="2"/>
+    </album>
+  </artist>
 </music>
