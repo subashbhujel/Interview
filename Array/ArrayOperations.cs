@@ -103,14 +103,15 @@ namespace InterviewPreparation.ArrayOp
 
             Print(sortedArr1);
             Print(sortedArr2);
-            // Construct a new sorted array
-
+            
             // i = Array #1 iterator
             // j = Array #2 iterator
+
             int i = 0, j = 0;
             int m = 0;
             int numOfElementAdded = 0;
 
+            // Construct a new sorted array
             int[] sortedArr = new int[len1 + len2];
 
             while (i < len1 && j < len2)

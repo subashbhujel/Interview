@@ -13,6 +13,7 @@ namespace InterviewPreparation
 
         /// <summary>
         ///  Find the length of a linked list which contains cycle.
+        /// Approach: Use Slow and Fast pointer
         /// </summary>
         public void PrintTheLengthOfCyclicList()
         {

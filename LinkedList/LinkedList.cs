@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace InterviewPreparation
-{
-    // Q. How do you find the middle item in a linked list?
+{    
     public class LinkedList
     {
         public LinkedList<string> CreateALinkedList()
@@ -20,8 +19,9 @@ namespace InterviewPreparation
             //Display(sentence, "The linked list values:");
             return sentence;
         }
-        
+
         /// <summary>
+        /// Q. How do you find the middle item in a linked list?
         /// Solution: Use two pointers - slow and fast
         /// 1. Slow pointer moves 1 pointer while Fast moves 2 pointer
         /// 2. When Fast reaches end, Slow pointer will reach the middle of the LL

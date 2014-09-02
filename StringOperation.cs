@@ -57,7 +57,6 @@
         /// </summary>
         /// <param name="source"></param>
         /// <param name="destination"></param>
-
         public void RearrangeArrayBySwappingWithZero(int[] source, int[] destination)
         {
             // Example: src={1,0,2,3}; tgt={2,1,3,0};           
@@ -586,6 +585,7 @@
 
             //Taking care of negative number
             bool isNegative = false;
+
             if (number < 0)
             {
                 number *= -1;
@@ -649,8 +649,6 @@
                 //Console.WriteLine(string.Format(" hundred: {0} ten: {1} one: {2}", hundred, ten, one));
             }
 
-
-
             if (isNegative)
                 return "Minus " + finalWord;
 
@@ -659,7 +657,7 @@
         }
 
         /// <summary>
-        /// Q. In an array with integers between 1 and 1,000,000 one value is in the array twice. How do you determine which one?  
+        /// Q. In an array with integers between 1 and 1,000,000, only one value is in the array twice. How do you determine which one?  
         /// </summary>
         /// <param name="arr"></param>
         public void FindADuplicateNumber()
