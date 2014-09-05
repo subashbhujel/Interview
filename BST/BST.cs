@@ -16,10 +16,10 @@ namespace InterviewPreparation.BST
         }
 
         /// <summary>
-        /// Find the depth of BST.
-        /// Approach is to use Queue 
+        /// Find the Height of BST.
+        /// Approach : Use Queue!!
         /// </summary>
-        /// <returns>The depth of a BST.</returns>
+        /// <returns>The Height of BST.</returns>
         public int FindTheHeight()
         {
             int height = 0;
@@ -69,7 +69,6 @@ namespace InterviewPreparation.BST
         /// Copied the solution here: http://leetcode.com/2010/09/printing-binary-tree-in-level-order.html
         /// Level by level traversal is known as Breadth-first traversal. 
         /// Using a Queue is the proper way to do this. If you wanted to do a depth first traversal you would use a stack.
-        /// The way you have it is not quite standard though. Here's how it should be.
         /// </summary>
         public void PrintLevelByLevel()
         {
@@ -117,6 +116,7 @@ namespace InterviewPreparation.BST
         {
             if (n == null)
                 return true;
+
             if (CheckBST(n.left, min))
             {
                 if (n.data > min)
