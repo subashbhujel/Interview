@@ -121,7 +121,7 @@ namespace InterviewPreparation
 
             ArrayOp.ArrayOperations arrayOperations = new ArrayOp.ArrayOperations();
 
-            arrayOperations.MoveAllZeroesToEndOfArray(new int[] { 1, 9, 0, 0, 2, 1, 0, 3, 0 });
+            //arrayOperations.MoveAllZeroesToEndOfArray(new int[] { 1, 9, 0, 0, 2, 1, 0, 3, 0 });
 
             //Console.WriteLine(arrayOperations.FindMinSequence(new int[] { 2,1,3,2,7,1 }, 10));
 
@@ -137,6 +137,17 @@ namespace InterviewPreparation
             //int k = 3;
             //int min = arrayOperations.FindTheKthElement(new int[] { 1, 6, 13, 20 }, new int[] { 2, 6, 20, 60 }, k);
             //Console.WriteLine(min == int.MinValue ? k + "th value doesn't exist" : "Minimun value is: " + min);
+
+            #endregion
+
+            #region TRICK QUESTIONS
+            
+            TrickQuestions.TrickQuestions trickQ = new TrickQuestions.TrickQuestions();
+            
+            Console.WriteLine(trickQ.MakeBricks(2, 1, 7));
+            Console.WriteLine(trickQ.MakeBricks(2, 5, 9));
+            Console.WriteLine(trickQ.MakeBricks(10, 1, 11));
+            Console.WriteLine(trickQ.MakeBricks(2, 1,9 ));
 
             #endregion
         }

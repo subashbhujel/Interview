@@ -21,8 +21,9 @@ namespace InterviewPreparation.TrickQuestions
         /// <param name="big">Big Brick</param>
         /// <param name="goal">Goal brick</param>
         /// <returns></returns>
-        public bool makeBricks(int small, int big, int goal)
+        public bool MakeBricks(int small, int big, int goal)
         {
+            return goal <= small + big * 5 && big % 5 <= small;
         }
     }
 }
