@@ -141,13 +141,20 @@ namespace InterviewPreparation
             #endregion
 
             #region TRICK QUESTIONS
-            
+
             TrickQuestions.TrickQuestions trickQ = new TrickQuestions.TrickQuestions();
-            
-            Console.WriteLine(trickQ.MakeBricks(2, 1, 7));
-            Console.WriteLine(trickQ.MakeBricks(2, 5, 9));
-            Console.WriteLine(trickQ.MakeBricks(10, 1, 11));
-            Console.WriteLine(trickQ.MakeBricks(2, 1,9 ));
+
+            //Console.WriteLine(trickQ.MakeBricks(2, 1, 7));
+            //Console.WriteLine(trickQ.MakeBricks(2, 5, 9));
+            //Console.WriteLine(trickQ.MakeBricks(10, 1, 11));
+            //Console.WriteLine(trickQ.MakeBricks(2, 1,9 ));
+
+            #endregion
+
+            #region Tic-Tac-Toe Game
+
+            Tic_Tac_Toe.TicTacToe TTT= new Tic_Tac_Toe.TicTacToe("Subash");
+            TTT.Play();
 
             #endregion
         }

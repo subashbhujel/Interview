@@ -36,9 +36,9 @@ namespace AlbumInfo
     {
         const string songsFilePath = @"C:\Users\Subash\Documents\GitHub\Interview\AlbumInfo\Songs.xml";
 
-        public bool AddSong(string name, string length)
+        public bool AddSong(string name, string length, string artist, string album)
         {
-            return AddSongs(name, length);
+            return AddSongs(name, length, artist, album);
         }
 
         public List<string> GetData(string albumName)
@@ -110,7 +110,7 @@ namespace AlbumInfo
         /// <param name="name"></param>
         /// <param name="length"></param>
         /// <returns></returns>
-        private bool AddSongs(string name, string length)
+        private bool AddSongs(string name, string length, string artist, string album)
         {
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(length) ||
                 string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(length))
@@ -120,28 +120,52 @@ namespace AlbumInfo
 
             try
             {
+                /*
+                 * XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml();
+
+                XmlNode nonFuel = xmlDoc.SelectSingleNode("//NonFuel");
+                XmlNode dispute = xmlDoc.SelectSingleNode("//Dispute");
+
+
+                XmlNode xmlRecordNo=  xmlDoc.CreateNode(XmlNodeType.Element, "Records", null);
+                xmlRecordNo.InnerText = Guid.NewGuid().ToString();
+                nonFuel.InsertAfter(xmlRecordNo, dispute);
+                */
                 XmlDocument xDoc = new XmlDocument();
                 xDoc.Load(songsFilePath);
-
-                foreach (XmlNode xNode in xDoc.SelectNodes("//album"))
+                foreach (XmlNode xNodeArtist in xDoc.SelectNodes("//artist"))
                 {
-                    XmlElement newSong = xDoc.CreateElement("song");
+                    if (xNodeArtist.ToString().Equals(artist))
+                    {
+                        foreach (XmlNode xNodeAlbum in xDoc.SelectNodes("//album"))
+                        {
+                            if (xNodeAlbum.ToString().Equals(album))
+                            {
+                                string sss = xNodeArtist.Attributes[0].Value.ToString();
+                                string s = xNodeAlbum.Attributes[0].Value.ToString();
 
-                    XmlAttribute songName = xDoc.CreateAttribute("title");
-                    songName.Value = name;
 
-                    XmlAttribute songLength = xDoc.CreateAttribute("length");
-                    songLength.Value = length;
+                                XmlElement newSong = xDoc.CreateElement("song");
 
-                    XmlAttribute songId = xDoc.CreateAttribute("Id");
-                    songId.Value = "100";
+                                XmlAttribute songName = xDoc.CreateAttribute("title");
+                                songName.Value = name;
 
-                    newSong.Attributes.Append(songName);
-                    newSong.Attributes.Append(songLength);
-                    newSong.Attributes.Append(songId);
+                                XmlAttribute songLength = xDoc.CreateAttribute("length");
+                                songLength.Value = length;
 
-                    xNode.AppendChild(newSong);
-                    xNode.InnerText = "myInnerText";
+                                XmlAttribute songId = xDoc.CreateAttribute("Id");
+                                songId.Value = "100";
+
+                                newSong.Attributes.Append(songName);
+                                newSong.Attributes.Append(songLength);
+                                newSong.Attributes.Append(songId);
+
+                                xNodeAlbum.AppendChild(newSong);
+                                xNodeAlbum.InnerText = "myInnerText";
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception)

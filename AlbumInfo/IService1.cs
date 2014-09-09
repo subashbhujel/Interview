@@ -12,12 +12,11 @@ namespace AlbumInfo
     [ServiceContract]
     public interface IService1
     {
-
         [OperationContract]
         List<string> GetData(string albumName);
 
         [OperationContract]
-        bool AddSong(string name, string length);
+        bool AddSong(string name, string length, string artist, string album);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
