@@ -153,8 +153,18 @@ namespace InterviewPreparation
         }
 
         /// <summary>
-        /// input  : 10->20->30->40->50,
-        /// output : 30->40->50->10->20 (for num = 2) 
+        /// Given a singly linked list, rotate the linked list counter-clockwise by k nodes. Where k is a given positive integer. 
+        /// 
+        /// Approach:
+        ///     Assume that k is smaller than the count of nodes in linked list.
+        ///     To  rotate the linked list, we need to change next of kth node to NULL, next of last node to previous head node, and finally change head to(k+1)th node.
+        ///     So we need to get hold of three nodes: kth node, (k+1)th node and last node.
+        ///     Traverse the list from beginning and stop at kth node.Store pointer to kth node. We can get (k+1)th node using kthNode->next.
+        ///     Keep traversing till end and store pointer to last node also.Finally, change pointers as stated above.
+        /// 
+        /// For Eg:
+        ///     input  : 10->20->30->40->50,
+        ///     output : 30->40->50->10->20 (for num = 2) 
         /// </summary>
         /// <param name="num"></param>
         public void RotateTheList(int num)
@@ -182,6 +192,7 @@ namespace InterviewPreparation
 
             temp2 = temp1;
 
+            // Find the last node
             while (temp2.next != null)
             {
                 temp2 = temp2.next;
@@ -245,10 +256,13 @@ namespace InterviewPreparation
         /// <summary>
         /// Q1.- Written exam (Amazon, Bangalore)
         /// Given a singly link list and a number 'K', swap the Kth node from the start with the Kth node from the last. Check all the edge cases.
-        /// Sample Input: 1->2->3->4->5->6->7->8 and K = 3
-        /// Sample Output : 1->2->6->4->5->3->7->8
-        /// Sample Input: 1->2->3->4->5->6->7->8 and K = 10
-        /// Sample Output: print error "LIST IS OF LESSER SIZE".
+        /// 
+        /// For eg:
+        ///     Input: 1->2->3->4->5->6->7->8 and K = 3
+        ///     Output : 1->2->6->4->5->3->7->8
+        /// 
+        ///     Input: 1->2->3->4->5->6->7->8 and K = 10
+        ///     Output: print error "LIST IS OF LESSER SIZE".
         /// </summary>
         /// <param name="pos"></param>
         public void SwapPosition(int pos)

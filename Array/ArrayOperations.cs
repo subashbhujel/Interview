@@ -9,6 +9,15 @@ namespace InterviewPreparation.ArrayOp
     class ArrayOperations
     {
         /// <summary>
+        /// Transform an array - Row -> Col & Col -> Row
+        /// </summary>
+        /// <param name="arr"></param>
+        public void ConvertRowintoCol(int[,] arr)
+        {
+
+        }
+
+        /// <summary>
         /// Move all zeroes to end of array
         /// Given an array of random numbers, Push all the zero’s of a given array to the end of the array. 
         /// For example, if the given arrays is {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0}, it should be changed to {1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0}. 
@@ -73,7 +82,7 @@ namespace InterviewPreparation.ArrayOp
         /// <returns></returns>
         public int FindMinSequence(int[] arr, int sum)
         {
-            // INCOMPLETE Has Bugs!!
+            // INCOMPLETE. Has Bugs!!
             if (arr == null)
             {
                 Console.WriteLine("Invaid (null) Array.");
@@ -190,12 +199,20 @@ namespace InterviewPreparation.ArrayOp
 
             if (i == len1 && j < len2)
             {
-                sortedArr[m++] = sortedArr2[j++];
+                while (j < len2)
+                {
+                    sortedArr[m++] = sortedArr2[j++];
+                    numOfElementAdded++;
+                }
             }
 
             if (i < len1 && j == len2)
             {
-                sortedArr[m++] = sortedArr1[i++];
+                while (i < len1)
+                {
+                    sortedArr[m++] = sortedArr1[i++];
+                    numOfElementAdded++;
+                }
             }
 
             // Final combined sorted array ie array #1 + array #2

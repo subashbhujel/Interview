@@ -134,9 +134,9 @@ namespace InterviewPreparation
             ///  Find 4th minimum value. Ans: 13
             /// Assumption: Both array is of equal length (irrelavant). Array is of equal length.
             /// </summary>            
-            //int k = 3;
-            //int min = arrayOperations.FindTheKthElement(new int[] { 1, 6, 13, 20 }, new int[] { 2, 6, 20, 60 }, k);
-            //Console.WriteLine(min == int.MinValue ? k + "th value doesn't exist" : "Minimun value is: " + min);
+            //int k = 9;
+            //int min = arrayOperations.FindTheKthElement(new int[] { 2, 6, 20, 23, 44, 60, 111 }, new int[] { 1, 6, 13, 20 }, k);
+            //Console.WriteLine(min == int.MinValue ? k + "th value doesn't exist" : k + "th minimun value is: " + min);
 
             #endregion
 
@@ -153,8 +153,8 @@ namespace InterviewPreparation
 
             #region Tic-Tac-Toe Game
 
-            Tic_Tac_Toe.TicTacToe TTT= new Tic_Tac_Toe.TicTacToe("Subash");
-            TTT.Play();
+            //Tic_Tac_Toe.TicTacToe TTT= new Tic_Tac_Toe.TicTacToe("Subash");
+            //TTT.Play();
 
             #endregion
         }
