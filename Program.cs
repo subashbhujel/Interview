@@ -12,6 +12,8 @@ namespace InterviewPreparation
         {
             StringOperation strOpe = new StringOperation();
 
+            #region STRING OPERATIONS
+            strOpe.ExpandTheString("1..5,8,11..14,18,20,26..29");
             //Reverse A String
             //strOpe.ReverseString("1234567890");
             //strOpe.ReverseString("ABCDEFGHIJKLMNOPQRSTUVWXY");
@@ -35,6 +37,8 @@ namespace InterviewPreparation
             //Console.WriteLine(strOpe.FindIfStringHAsUniqueChars(""));
 
             //strOpe.ConcatSrting(new string[] { "ABC", "DEF", "CAD" }, 3);
+
+            #endregion
 
             #region Stack Operations
 

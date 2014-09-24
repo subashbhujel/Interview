@@ -97,8 +97,7 @@ namespace InterviewPreparation
             n1.val = n2.val;
             n2.val = val;
         }
-
-
+        
         /// <summary>
         ///  Find if the list is cyclic
         /// </summary>

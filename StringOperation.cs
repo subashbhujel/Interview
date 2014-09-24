@@ -11,6 +11,58 @@
     class StringOperation
     {
         /// <summary>
+        /// string x = "1..5,8,11..14,18,20,26..29" 
+        ///         string y = "1,2,3,4,5,8,11,12,13,14,18,20,26,27,28,29"
+        /// Write a program to expand a given string x to y.
+        /// </summary>
+        /// <param name="str"></param>
+        public void ExpandTheString(string str)
+        {
+            if (string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str) || str == string.Empty)
+            {
+                Console.WriteLine("Invalid String.");
+                return;
+            }
+
+            Console.WriteLine("Original String: " + str);
+            string[] strArr = str.Split('.');
+            int pre = int.MinValue;
+
+            //foreach (string s in strArr)
+            //{
+            //    Console.WriteLine(s);
+            //}
+
+            foreach (string s in strArr)
+            {
+                if (s != string.Empty)
+                {
+                    if (s.Contains(","))
+                    {
+                        string[] arr2 = s.Split(',');
+
+                        for (int i = pre + 1; i <= Convert.ToInt32(arr2[0]); i++)
+                        {
+                            Console.WriteLine(i);
+                        }
+                        for (int i = 0; i < arr2.Length; i++)
+                        {
+                            if (i == 0) continue;
+                            Console.WriteLine(arr2[i]);
+                        }
+                        pre = Convert.ToInt32(arr2[arr2.Length - 1]);                        
+                        //continue;
+                    }
+                    else
+                    {
+                        Console.WriteLine(s);
+                        pre = Convert.ToInt32(s);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// "Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?"
         /// For eg: "ABCDEF" = True
         ///  ABCDEFA = FALSE
