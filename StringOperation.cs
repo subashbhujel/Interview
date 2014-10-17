@@ -757,81 +757,8 @@
             arr[size - new Random().Next(size / 2)] = arr[size - new Random().Next(size / 3)];
             return arr;
         }
-
-        /// <summary>
-        ///  There is an island which is represented by square matrix NxN.
-        /// A person on the island is standing at any given co-ordinates(x, y). He can move in any direction one step right, left, up, down on the island.If he steps outside the island, he dies. 
-        /// Let island is represented as (0,0) to(N-1, N-1) (i.e NxN matrix) & person is standing at given co-ordinates(x, y). He is allowed to move n steps on the island(along the matrix). 
-        /// What is the probability that he is alive after he walks n steps on the island?
-        /// Write a psuedocode & then full code for function 
-        /// " float probabilityofalive(int x,int y, int n) ".
-        /// </summary>
-        public void Matrix()
-        {
-            int[,] island = CreateanIsland(3, 3);
-
-            int probability = 4;
-
-            //person 
-            int x = 1, y = 1;
-            Console.WriteLine(string.Format("Person is at [{0}][{1}]\n", x, y));
-            int person = island[x, y];
-
-            // Up
-            if (!MovePossible(island, x - 1, y))
-            { probability--; }
-
-            //Down
-            if (!MovePossible(island, x + 1, y))
-            { probability--; }
-
-            //Right
-            if (!MovePossible(island, x, y + 1))
-            { probability--; }
-
-            //Left
-            if (!MovePossible(island, x, y - 1))
-            { probability--; }
-
-            Console.WriteLine("Probability of a man getting out alive is :" + probability * 25 + "%");
-        }
-
-        private bool MovePossible(int[,] island, int m, int n)
-        {
-            try
-            {
-                Console.Write(string.Format("[{0}][{1}]", m, n));
-                int temp = island[m, n];
-            }
-            catch (Exception)
-            {
-                Console.WriteLine(" - Dead! \n");
-                return false;
-            }
-            Console.WriteLine("- Alive! \n");
-            return true;
-        }
-
-        private int[,] CreateanIsland(int m, int n)
-        {
-            int[,] island = new int[m, n];
-            int val = 1;
-            for (int row = 0; row < m; row++)
-            {
-                for (int col = 0; col < n; col++)
-                {
-                    island[row, col] = val++;
-                }
-            }
-
-            return island;
-        }
-
-        public void PrintAMatrix(int row, int col)
-        {
-            int[,] matrix = CreateanIsland(row, col);
-        }
-
+             
+        
         public void FindUniqueChars(string str)
         {
             // "aabccdeeffgggggghhijkkkkl"

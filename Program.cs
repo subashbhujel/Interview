@@ -75,16 +75,16 @@ namespace InterviewPreparation
             //DoubleLL.DoublyLL Dll = new DoubleLL.DoublyLL();
             //Dll.Print();
 
-            LList ll = new LList();
-            ll.Add(1);
-            ll.Add(2);
-            ll.Add(3);
-            ll.Add(2);
-            ll.Add(1);            
+            //LList ll = new LList();
+            //ll.Add(1);
+            //ll.Add(2);
+            //ll.Add(3);
+            //ll.Add(2);
+            //ll.Add(1);
 
-            ll.Print();
+            //ll.Print();
 
-            Console.WriteLine(ll.CheckIfListIsPalindrome() ? "Palindrome!" : "Not Palindrome");
+            //Console.WriteLine(ll.CheckIfListIsPalindrome() ? "Palindrome!" : "Not Palindrome");
 
             //ll.SwapConsecutiveElements();
             //ll.Print();
@@ -152,6 +152,7 @@ namespace InterviewPreparation
 
             TrickQuestions.TrickQuestions trickQ = new TrickQuestions.TrickQuestions();
 
+            // Console.WriteLine(trickQ.Matrix2(5, 5, 2, 2, 0));
             //Console.WriteLine(trickQ.MakeBricks(2, 1, 7));
             //Console.WriteLine(trickQ.MakeBricks(2, 5, 9));
             //Console.WriteLine(trickQ.MakeBricks(10, 1, 11));
