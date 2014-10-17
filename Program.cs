@@ -13,7 +13,9 @@ namespace InterviewPreparation
             StringOperation strOpe = new StringOperation();
 
             #region STRING OPERATIONS
-            strOpe.ExpandTheString("1..5,8,11..14,18,20,26..29");
+
+            //strOpe.ExpandTheString("1..5,8,11..14,18,20,26..29");
+
             //Reverse A String
             //strOpe.ReverseString("1234567890");
             //strOpe.ReverseString("ABCDEFGHIJKLMNOPQRSTUVWXY");
@@ -62,25 +64,27 @@ namespace InterviewPreparation
 
             #region Linked List
 
-            /*
-           LinkedList ll = new LinkedList();
-           LinkedList<string> str = ll.CreateALinkedList();
-           ll.Display(str);
-           Console.WriteLine("\nThe Middle Element is : " + ll.FindMiddleElement(str));
-           */
+
+            //LinkedList ll = new LinkedList();
+            //LinkedList<string> str = ll.CreateALinkedList();
+            //ll.Display(str);
+            //Console.WriteLine("\nThe Middle Element is : " + ll.FindMiddleElement(str));
+
 
             //strOpe.FindLongestNonrepeatingChars("abababdetest");
             //DoubleLL.DoublyLL Dll = new DoubleLL.DoublyLL();
             //Dll.Print();
-            //LList ll = new LList();
-            //ll.Add(1);
-            //ll.Add(2);
-            //ll.Add(3);
-            //ll.Add(4);
-            //ll.Add(5);
 
-            //Console.WriteLine(4 & 4);
-            //ll.Print();
+            LList ll = new LList();
+            ll.Add(1);
+            ll.Add(2);
+            ll.Add(3);
+            ll.Add(2);
+            ll.Add(1);            
+
+            ll.Print();
+
+            Console.WriteLine(ll.CheckIfListIsPalindrome() ? "Palindrome!" : "Not Palindrome");
 
             //ll.SwapConsecutiveElements();
             //ll.Print();

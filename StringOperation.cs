@@ -25,16 +25,23 @@
             }
 
             Console.WriteLine("Original String: " + str);
-            string[] strArr = str.Split('.');
-            int pre = int.MinValue;
 
-            //foreach (string s in strArr)
-            //{
-            //    Console.WriteLine(s);
-            //}
+            // Split the string with '.' character that will give something
+            // Note: After you split you get an empty element. My guess its for the element between ..
+            string[] strArr = str.Split('.');
+
+            int pre = int.MinValue;
 
             foreach (string s in strArr)
             {
+                Console.WriteLine(s);
+            }
+
+            Console.WriteLine("\n*************");
+
+            foreach (string s in strArr)
+            {
+                // check if its NOT an empty 
                 if (s != string.Empty)
                 {
                     if (s.Contains(","))
@@ -50,8 +57,7 @@
                             if (i == 0) continue;
                             Console.WriteLine(arr2[i]);
                         }
-                        pre = Convert.ToInt32(arr2[arr2.Length - 1]);                        
-                        //continue;
+                        pre = Convert.ToInt32(arr2[arr2.Length - 1]);
                     }
                     else
                     {

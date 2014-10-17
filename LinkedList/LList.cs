@@ -11,6 +11,88 @@ namespace InterviewPreparation
         private Node head = null;
         private Node temp1 = null, temp2 = null;
 
+
+        /// <summary>
+        /// METHOD 1 (Use a Stack)
+        ///         A simple solution is to use a stack of list nodes.This mainly involves three steps.
+        ///     1) Traverse the given list from head to tail and push every visited node to stack.
+        ///     2) Traverse the list again.For every visited node, pop a node from stack and compare data of popped node with currently visited node.
+        ///     3) If all nodes matched, then return true, else false.
+        ///     Time complexity of above method is O(n), but it requires O(n) extra space.Following methods solve this with constant extra space.
+        /// 
+        /// METHOD 2 (By reversing the list)
+        ///     This method takes O(n) time and O(1) extra space.
+        ///     1) Get the middle of the linked list.
+        ///     2) Reverse the second half of the linked list.
+        ///     3) Check if the first half and second half are identical.
+        ///     4) Construct the original linked list by reversing the second half again and attaching it back to the first half
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckIfListIsPalindrome()
+        {
+            bool isPalindrome = false;
+
+            // Check if list is empty
+            if (IsListEmpty())
+            {
+                return isPalindrome;
+            }
+
+            #region METHOD 1 : Use Stack!
+
+            /*
+            Stack<int> stack = new Stack<int>();
+
+            temp1 = head;
+
+            while (true)
+            {
+                stack.Push(temp1.val);
+                temp1 = temp1.next;
+
+                if (temp1 == null)
+                    break;
+            }
+
+            temp1 = head;
+
+            while (true)
+            {
+                if (stack.Pop() != temp1.val)
+                {
+                    return false;
+                }
+
+                temp1 = temp1.next;
+
+                if (temp1 == null)
+                    return true;
+
+            }
+            */
+
+            #endregion
+
+            #region Method 2 : Reverse the list
+
+            temp1 = head;
+            Node fastPointer = head, slowPointer = head;
+            Node midNode = null;
+
+            while (fastPointer != null && fastPointer.next != null)
+            {
+                fastPointer = fastPointer.next.next;
+
+                slowPointer = slowPointer.next;
+            }
+
+            Console.WriteLine(slowPointer.val);
+
+            return isPalindrome;
+
+            #endregion
+        }
+
         /// <summary>
         ///  Find the length of a linked list which contains cycle.
         /// Approach: Use Slow and Fast pointer
@@ -97,7 +179,7 @@ namespace InterviewPreparation
             n1.val = n2.val;
             n2.val = val;
         }
-        
+
         /// <summary>
         ///  Find if the list is cyclic
         /// </summary>
