@@ -10,6 +10,31 @@
     /// </summary>
     class StringOperation
     {
+
+        /// <summary>
+        /// Write a method to replace all spaces in a string with ‘%20’  
+        /// </summary>
+        /// <param name="str"></param>
+        public void ReplaceSpaceWith20(string str)
+        {
+            if (string.IsNullOrEmpty(str) || !str.Contains(" "))
+                return;
+
+            string[] arr = str.Split(' ');
+
+            StringBuilder newStr = new StringBuilder();
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (i != arr.Length - 1)
+                    newStr.Append(arr[i] + "%20");
+                else
+                {
+                    newStr.Append(arr[i]);
+                }
+            }
+            Console.WriteLine(newStr.ToString());
+        }
         /// <summary>
         /// Design an algorithm and write code to remove the duplicate characters in a string without using any additional buffer.
         /// NOTE: One or two additional variables are fine    
@@ -42,7 +67,7 @@
             if (string.IsNullOrEmpty(str))
                 return;
 
-            Console.WriteLine("String: {0}",str);
+            Console.WriteLine("String: {0}", str);
             char[] strarr = str.ToCharArray();
 
             int len = strarr.Length;
@@ -71,7 +96,7 @@
             for (int i = 0; i < tail; i++)
             {
                 Console.WriteLine(strarr[i]);
-            }            
+            }
         }
 
         /// <summary>

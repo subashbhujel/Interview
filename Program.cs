@@ -14,6 +14,7 @@ namespace InterviewPreparation
 
             #region STRING OPERATIONS
 
+            //strOpe.ReplaceSpaceWith20("My Name is Subash");
             //strOpe.RemoveDuplicates("ababcaaaaaaaabbbbbbbbcccccccddddd");
             //strOpe.RemoveDuplicates("aaaaaaaaa");
 
