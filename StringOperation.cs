@@ -10,6 +10,40 @@
     /// </summary>
     class StringOperation
     {
+        /// <summary>
+        /// Assume you have a method isSubstring which checks if one word is a substring of another.
+        /// Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring()
+        /// (i  e  , “waterbottle” is a rotation of “erbottlewat”)  
+        /// </summary>
+        /// <param name="s1"></param>
+        /// <param name="s2"></param>
+        /// <returns></returns>
+        public bool IsRotation(string s1, string s2)
+        {
+            // s1 = "erbottlewat", s2= "waterbottle"
+
+            // APPROACH:
+            //  Just do the following checks 
+            //  1   Check if length(s1) == length(s2)    If not, return false  
+            //  2   Else, concatenate s1 with itself and see whether s2 is substring of the result   
+            //      input: s1 = apple, s2 = pleap  ==> apple is a substring of pleappleap 
+            //      input: s1 = apple, s2 = ppale ==> apple is not a substring of ppaleppale
+
+            if (string.IsNullOrEmpty(s1) || string.IsNullOrEmpty(s2))
+                return false;
+            
+            Console.WriteLine(s1 + " , " + s2);
+
+            if (s1.Length != s2.Length)
+                return false;
+
+            // Using contains because isSubString() doesn't exits in C# and I don't have time to implement the api. 
+            // Contais works similar to IsSubstring()
+            if (string.Concat(s1, s1).Contains(s2))
+                return true;
+
+            return false;
+        }
 
         /// <summary>
         /// Write a method to replace all spaces in a string with ‘%20’  

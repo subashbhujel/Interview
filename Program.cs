@@ -14,6 +14,7 @@ namespace InterviewPreparation
 
             #region STRING OPERATIONS
 
+            // Console.WriteLine(strOpe.IsRotation("pleap", "apple"));
             //strOpe.ReplaceSpaceWith20("My Name is Subash");
             //strOpe.RemoveDuplicates("ababcaaaaaaaabbbbbbbbcccccccddddd");
             //strOpe.RemoveDuplicates("aaaaaaaaa");
