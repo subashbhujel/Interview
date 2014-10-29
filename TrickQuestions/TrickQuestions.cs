@@ -129,7 +129,7 @@ namespace InterviewPreparation.TrickQuestions
             return true;
         }
 
-        private int[,] CreateanIsland(int m, int n)
+        public static int[,] CreateanIsland(int m, int n)
         {
             int[,] island = new int[m, n];
             int val = 1;

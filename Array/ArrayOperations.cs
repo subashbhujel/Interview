@@ -9,6 +9,82 @@ namespace InterviewPreparation.ArrayOp
     class ArrayOperations
     {
         /// <summary>
+        /// Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column is set to 0  
+        /// </summary>
+        /// <param name="matrix"></param>
+        public void SetZeros(int[,] matrix, int m, int n)
+        {
+            // APPROACH:
+            //  At first glance, this problem seems easy: just iterate through the matrix and every time we see a 0, set that row and column to 0   
+            //  There’s one problem with that solution though: 
+            //      we will “recognize” those 0s later on in our iteration and then set their row and column to zero Pretty soon, 
+            //      our entire matrix is 0s!
+            //      
+            //  One way around this is to keep a second matrix which flags the 0 locations. 
+            //  We would then do a second pass through the matrix to set the zeros. 
+            //  This would take O(MN) space. Do we really need O(MN)space ? No
+            //  
+            //  Since we’re going to set the entire row and column to zero, do we really need to track which cell in a row is zero ? No    
+            //  We only need to know that row 2, for example, has a zero   
+            //  The code below implement this algorithm. We keep track in two arrays all the rows with zeros and all the columns with zeros    
+            //  We then make a second pass of the matrix and set a cell to zero if its row or column is zero
+
+            // Setting Zeros at random locations.
+            matrix[m - 1, n - 1] = 0;
+            matrix[0,0] = 0;
+            matrix[1, 2] = 0;
+
+            Console.WriteLine("Original Array:");
+            Print(matrix,m,n);
+
+            int[] row = new int[m];
+            int[] col = new int[n];
+            
+            // Find the occurance of 0 and mark row and column arrays
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (matrix[i, j] == 0)
+                    {
+                        row[i] = 1;
+                        col[j] = 1;
+                    }
+                }
+            }
+
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (row[i] == 1 || col[j] == 1)
+                    {
+                        matrix[i, j] = 0;
+                    }
+                }
+            }
+
+            Console.WriteLine("Processed Array:");
+            Print(matrix,m,n);
+        }
+        /// <summary>
+        /// Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees.
+        ///  Can you do this in place?
+        /// </summary>
+        /// <param name="image"></param>
+        /// <param name="n"></param>
+        public void RotateAnImageBy90Degree(int[,] matrix, int n)
+        {
+            // APPROACH:
+            //    The rotation can be performed in layers, where you perform a cyclic swap on the edges on each layer
+            //    In the first for loop, we rotate the first layer(outermost edges)   
+            //    We rotate the edges by doing a four - way swap first on the corners, then on the element clockwise from the edges, 
+            //    then on the element three steps away  
+            //    Once the exterior elements are rotated, we then rotate the interior region’s edges
+
+        }
+
+        /// <summary>
         /// Transform an array - Row -> Col & Col -> Row
         /// </summary>
         /// <param name="arr"></param>
@@ -238,7 +314,22 @@ namespace InterviewPreparation.ArrayOp
             {
                 Console.WriteLine(string.Format("[{0}] - {1}", i, arr[i]));
             }
+        }
 
+        /// <summary>
+        /// Prints an integer array
+        /// </summary>
+        /// <param name="arr"></param>
+        public void Print(int[,] arr,int m,int n)
+        {
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write(arr[i,j]+"\t");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
