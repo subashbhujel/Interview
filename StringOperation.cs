@@ -25,6 +25,14 @@
             //  1.   For each character, check if it is a duplicate of already found characters  
             //  2.   Skip duplicate characters and update the non duplicate characters  
 
+            // Algorithm: With Additional Memory
+            //  1. User boolean[] chars = new bool[256];
+            //  2. Set all chars to false
+            //  3. Set first chars from string to true a
+            //  4. Set tail = 1
+            //  5. loop through string, check if its Hit in chars array, replace/skip as necessary.
+            //  6. increment the tail
+
             // Test Cases: 
             //  1   String does not contain any duplicates, e  g  : abcd 
             //  2   String contains all duplicates, e  g  : aaaa 
