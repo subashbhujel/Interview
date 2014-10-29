@@ -11,6 +11,121 @@
     class StringOperation
     {
         /// <summary>
+        /// Design an algorithm and write code to remove the duplicate characters in a string without using any additional buffer.
+        /// NOTE: One or two additional variables are fine    
+        ///     An extra copy of the array is not  FOLLOW UP Write the test cases for this method  
+        /// </summary>
+        /// <param name="str"></param>
+        public void RemoveDuplicates(string str)
+        {
+            // First, ask yourself, what does the interviewer mean by an additional buffer? 
+            // Can we use an additional array of constant size? 
+            // 
+            // Algorithm—No (Large) Additional Memory: 
+            //  1.   For each character, check if it is a duplicate of already found characters  
+            //  2.   Skip duplicate characters and update the non duplicate characters  
+
+            // Test Cases: 
+            //  1   String does not contain any duplicates, e  g  : abcd 
+            //  2   String contains all duplicates, e  g  : aaaa 
+            //  3   Null string 
+            //  4   String with all continuous duplicates, e  g  : aaabbb
+
+            if (string.IsNullOrEmpty(str))
+                return;
+
+            Console.WriteLine("String: {0}",str);
+            char[] strarr = str.ToCharArray();
+
+            int len = strarr.Length;
+
+            if (len < 2)
+                return;
+
+            // Stores the last index of unique chars. Ie up until this index is all UNIQUE chars!
+            int tail = 1;
+            for (int i = 0; i < len; i++)
+            {
+                int j;
+                for (j = 0; j < tail; j++)
+                {
+                    if (strarr[i] == strarr[j])
+                        break;
+                }
+                if (j == tail)
+                {
+                    strarr[tail] = strarr[i];
+                    tail++;
+                }
+            }
+
+            Console.WriteLine("Unique Chars: ");
+            for (int i = 0; i < tail; i++)
+            {
+                Console.WriteLine(strarr[i]);
+            }            
+        }
+
+        /// <summary>
+        /// Implement a function OneEditApart with the following signature: 
+        /// bool OneEditApart(string s1, string s2)
+        /// OneEditApart("cat", "dog") = false 
+        /// OneEditApart("cat", "cats") = true 
+        /// OneEditApart("cat", "cut") = true 
+        /// OneEditApart("cat", "cast") = true 
+        /// OneEditApart("cat", "at") = true 
+        /// OneEditApart("cat", "acts") = false 
+        /// Edit is: insertion, removal, replacement
+        /// </summary>
+        public bool OneEditApart(string s1, string s2)
+        {
+            if (string.IsNullOrEmpty(s1) || string.IsNullOrEmpty(s2))
+                return false;
+
+            string small = s1.Length <= s2.Length ? s1 : s2;
+            string large = s1.Length <= s2.Length ? s2 : s1;
+
+            Console.Write(small + " , " + large + " : ");
+            // If string is the same, return true
+            if (s1.Equals(s2))
+                return true;
+
+            // counter that keeps track of how many characters are off
+            int operations = 0;
+
+            // Since Q says it has to be just ONE (1) insertion/removal/replacement. 
+            // The string length differences cannot be more than 1. 
+            if (large.Length - small.Length > 1)
+                return false;
+
+            // "Cat" "Cut"
+            else if (large.Length == small.Length)
+            {
+                for (int i = 0; i < small.Length; i++)
+                {
+                    if (small[i] != large[i] && ++operations > 1)
+                    {
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < small.Length; i++)
+                {
+                    if (small[i] != large[i] && small[i] != large[i + 1])
+                    {
+                        if (++operations > 1)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
         /// string x = "1..5,8,11..14,18,20,26..29" 
         ///         string y = "1,2,3,4,5,8,11,12,13,14,18,20,26,27,28,29"
         /// Write a program to expand a given string x to y.
@@ -757,8 +872,8 @@
             arr[size - new Random().Next(size / 2)] = arr[size - new Random().Next(size / 3)];
             return arr;
         }
-             
-        
+
+
         public void FindUniqueChars(string str)
         {
             // "aabccdeeffgggggghhijkkkkl"

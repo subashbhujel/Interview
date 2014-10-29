@@ -14,6 +14,23 @@ namespace InterviewPreparation
 
             #region STRING OPERATIONS
 
+            //strOpe.RemoveDuplicates("ababcaaaaaaaabbbbbbbbcccccccddddd");
+            //strOpe.RemoveDuplicates("aaaaaaaaa");
+
+            /// bool OneEditApart(string s1, string s2)
+            /// OneEditApart("cat", "dog") = false 
+            /// OneEditApart("cat", "cats") = true 
+            /// OneEditApart("cat", "cut") = true 
+            /// OneEditApart("cat", "cast") = true 
+            /// OneEditApart("cat", "at") = true 
+            /// OneEditApart("cat", "acts") = false 
+            //Console.WriteLine(strOpe.OneEditApart("cat", "dog"));
+            //Console.WriteLine(strOpe.OneEditApart("cat", "cats"));
+            //Console.WriteLine(strOpe.OneEditApart("cat", "cut"));
+            //Console.WriteLine(strOpe.OneEditApart("cat", "cast"));
+            //Console.WriteLine(strOpe.OneEditApart("cat", "at"));
+            //Console.WriteLine(strOpe.OneEditApart("cat", "acts"));
+
             //strOpe.ExpandTheString("1..5,8,11..14,18,20,26..29");
 
             //Reverse A String

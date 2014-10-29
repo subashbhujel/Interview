@@ -33,7 +33,7 @@ namespace InterviewPreparation
             LinkedListNode<string> Head = linkedList.First;
             LinkedListNode<string> slow = Head, fast = Head;
 
-            if (Head != null)
+            if (fast != null)
             {
                 while (fast != null && fast.Next != null)
                 {
