@@ -94,13 +94,15 @@ namespace InterviewPreparation
             //DoubleLL.DoublyLL Dll = new DoubleLL.DoublyLL();
             //Dll.Print();
 
-            //LList ll = new LList();
-            //ll.Add(1);
-            //ll.Add(2);
-            //ll.Add(3);
-            //ll.Add(2);
-            //ll.Add(1);
+            LList ll = new LList();
+            ll.Add(1);
+            ll.Add(-2);
+            ll.Add(1);
+            ll.Add(2);
+            ll.Add(1);
+            ll.Add(5);
 
+            // ll.RemoveDuplicatesFromUnsortedList();
             //ll.Print();
 
             //Console.WriteLine(ll.CheckIfListIsPalindrome() ? "Palindrome!" : "Not Palindrome");

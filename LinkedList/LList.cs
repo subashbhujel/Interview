@@ -11,6 +11,86 @@ namespace InterviewPreparation
         private Node head = null;
         private Node temp1 = null, temp2 = null;
 
+        /// <summary>
+        /// Implement an algorithm to delete a node in the middle of a single linked list, given only access to that node  
+        /// EXAMPLE 
+        ///     Input: the node ‘c’ from the linked list a->b->c->d->e 
+        ///     Result: nothing is returned, but the new linked list looks like a->b->d->e
+        /// </summary>
+        public void DeleteNodeInTheMiddleNode(Node n)
+        {
+            //  The solution to this is to simply copy the data from the next node into this node and then delete the next node  
+            //  
+            //  NOTE: 
+            //      This problem can not be solved if the node to be deleted is the last node in the linked list   
+            //      That’s ok—your interviewer wants to see you point that out   
+            //      You could consider marking it as dummy in that case    
+            //      This is an issue you should discuss with your interviewer  
+
+            if (IsListEmpty() || head.next == null)
+                return;
+
+            temp1 = n.next;
+            n.val = temp1.val;
+            n.next = temp1.next;
+        }
+
+        /// <summary>
+        /// Write code to remove duplicates from an unsorted linked list  FOLLOW UP How would you solve this problem if a temporary buffer is not allowed?
+        /// </summary>
+        /// <param name="list"></param>
+        public void RemoveDuplicatesFromUnsortedList()
+        {
+            // APPROACH: 
+            // 1. If we can use a buffer, we can keep track of elements in a hashtable and remove any dups.
+            // 2. Without any buffer: 
+            //      We can iterate with two pointers: “current” does a normal iteration, 
+            //      while “runner” iterates through all prior nodes to check for dups    
+            //      Runner will only see one dup per node, because if there were multiple duplicates they would have been removed already  
+
+            if (IsListEmpty())
+            {
+                Console.WriteLine("Empty List.");
+                return;
+            }
+
+            Node previous = head;
+            Node current = previous.next;
+
+            Print();
+
+            // run until current reaches end of the list
+            while (current != null)
+            {
+                // Always start runner from the beginning
+                Node runner = head;
+
+                // Run until runner meets current
+                while (runner != current)
+                {
+                    // Check for duplicates value
+                    if (runner.val == current.val)
+                    {
+                        // Remove duplicate 
+                        temp1 = current.next;
+                        previous.next = temp1;
+                        current = temp1;
+                        break;
+                    }
+                    // No duplicate. All unique so far. Continue with runner.
+                    runner = runner.next;
+                }
+
+                // Check all elements from beginning (head) to current, now move forward the previous and current pointer.
+                if (runner == current)
+                {
+                    previous = current;
+                    current = current.next;
+                }
+            }
+
+            Print();
+        }
 
         /// <summary>
         /// METHOD 1 (Use a Stack)
