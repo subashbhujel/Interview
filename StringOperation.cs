@@ -31,7 +31,7 @@
 
             if (string.IsNullOrEmpty(s1) || string.IsNullOrEmpty(s2))
                 return false;
-            
+
             Console.WriteLine(s1 + " , " + s2);
 
             if (s1.Length != s2.Length)
@@ -39,10 +39,7 @@
 
             // Using contains because isSubString() doesn't exits in C# and I don't have time to implement the api. 
             // Contais works similar to IsSubstring()
-            if (string.Concat(s1, s1).Contains(s2))
-                return true;
-
-            return false;
+            return string.Concat(s1, s1).Contains(s2) ? true : false;
         }
 
         /// <summary>

@@ -23,7 +23,7 @@ namespace InterviewPreparation.TrickQuestions
         /// <returns></returns>
         public bool MakeBricks(int small, int big, int goal)
         {
-            return goal <= small + big * 5 && big % 5 <= small;
+            return goal <= (small + (big * 5)) && big % 5 <= small;
         }
 
 
