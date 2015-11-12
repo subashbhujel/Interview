@@ -494,6 +494,7 @@
 
         /// <summary>
         /// Q. In an array with integers between 1 and 1,000,000 one value is in the array twice. How do you determine which one?  
+        /// http://stackoverflow.com/questions/7500974/in-an-array-with-integers-one-value-is-in-the-array-twice-how-do-you-determine
         /// </summary>
         /// <param name="arr"></param>
         public void FindADuplicateNumber()
