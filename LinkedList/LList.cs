@@ -87,6 +87,27 @@ namespace InterviewPreparation
 
         /// <summary>
         ///  Find if the list is cyclic
+        ///  bool findCircular(Node *head)
+        ///{
+        ///   Node *slower, * faster;
+        ///   slower = head;
+        ///   faster = head->next; //start faster one node ahead
+        ///   while(true) {
+
+        ///     // if the faster pointer encounters a NULL element
+        ///     if( !faster || !faster->next)
+        ///       return false;
+        ///    //if faster pointer ever equals slower or faster's next
+        ///    //pointer is ever equal to slow then it's a circular list
+        ///     else if (faster == slower || faster->next == slower)
+        ///        return true;
+        ///     else{
+        ///       // advance the pointers
+        ///        slower = slower->next;
+        ///        faster = faster->next->next;
+        ///      }
+        ///   }
+        ///}
         /// </summary>
         /// <returns></returns>
         public bool FindIfCyclic()
