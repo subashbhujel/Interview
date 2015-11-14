@@ -10,6 +10,13 @@ namespace InterviewPreparation
     {
         static void Main(string[] args)
         {
+            ArrayOperatios array = new ArrayOperatios();
+
+            int[,] arr = { { 1, 2, 3 }, { 3, 4, 4 }, { 5, 6, 6 }, { 7, 8, 9 } };
+
+            array.PrintInSpiralOrder(arr);
+
+            #region String Operations
             StringOperation strOpe = new StringOperation();
 
             //Reverse A String
@@ -30,7 +37,9 @@ namespace InterviewPreparation
             //strOpe.RotateAnArray(new int[] { 1, 2, 3, 4, 5 }, 3);
             //Console.WriteLine(strOpe.FindMedianOf3Nums(3, 2, -1));
 
-            strOpe.ConcatSrting(new string[] { "ABC", "DEF", "CAD" }, 3);
+            //strOpe.ConcatSrting(new string[] { "ABC", "DEF", "CAD" }, 3);
+
+            #endregion
 
             #region Stack Operations
 
