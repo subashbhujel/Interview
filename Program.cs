@@ -12,9 +12,11 @@ namespace InterviewPreparation
         {
             ArrayOperatios array = new ArrayOperatios();
 
-            int[,] arr = { { 1, 2, 3 }, { 3, 4, 4 }, { 5, 6, 6 }, { 7, 8, 9 } };
+            int[,] array2D = { { 1, 2, 3 }, { 3, 4, 4 }, { 5, 6, 6 }, { 7, 8, 9 } };
+            int[] array1D = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-            array.PrintInSpiralOrder(arr);
+            //array.PrintInSpiralOrder(array2D);
+            array.ArrangeArrya(array1D);
 
             #region String Operations
             StringOperation strOpe = new StringOperation();

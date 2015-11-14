@@ -9,6 +9,82 @@ namespace InterviewPreparation
     public class ArrayOperatios
     {
         /// <summary>
+        /// Swaps the array element
+        /// </summary>
+        /// <param name="arr">Array to be swapped</param>
+        /// <param name="i">Swap value 1 </param>
+        /// <param name="j">swap value 2</param>
+        /// <returns>Array with swapped values.</returns>
+        private int[] Swap(int[] arr, int i, int j)
+        {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+
+            return arr;
+        }
+
+        /// <summary>
+        /// Prints an array
+        /// </summary>
+        /// <param name="arr">Array to be printed.</param>
+        private void PrintArray(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i] + " ");
+            }
+            Console.WriteLine();
+        }
+
+        /// <summary>
+        /// Q. Sort an Array such that the odd numbers appear first followed by the even numbers . 
+        ///     http://algorithms.tutorialhorizon.com/sort-an-array-such-that-the-odd-numbers-appear-first-followed-by-the-even-numbers-the-odd-numbers-in-ascending-order-and-the-even-numbers-in-descending-order/
+        ///     Exam­ple:
+        ///     Input Array : 1 2 3 4 5 6 7 8 9 10
+        ///     Out­put : 1 3 5 7 9 10 8 6 4 2
+        /// </summary>
+        /// <param name="array">Unsorted Array.</param>
+        public void ArrangeArrya(int[] array)
+        {
+            //int mid = array.Length % 10 == 0 ? array.Length / 2 - 1 : array.Length / 2;
+
+            if (array.Length <= 1)
+            {
+                Console.WriteLine("Not enough items in an array");
+                return;
+            }
+
+            Console.Write("Before: ");
+            PrintArray(array);
+
+            // You want to swap from beginning of an array to a very last item of an array
+            int low = 0;
+            int high = array.Length - 1;
+
+            // Start a loop until low is smaller than high index
+            while (low < high)
+            {
+                // Find the even value. Skip if its odd.
+                while (array[low] % 2 != 0) low++;
+
+                // Find the odd value. Skip if it's even.
+                while (array[high] % 2 == 0) high--;
+
+                // Swap only if low and high do not cross each other. 
+                // Exit conditin.
+                if (low < high)
+                {
+                    // Swap the values.
+                    array = Swap(array, low, high);
+                }
+            }
+
+            Console.Write("After: ");
+            PrintArray(array);
+        }
+
+        /// <summary>
         /// Solution: http://stackoverflow.com/questions/726756/print-two-dimensional-array-in-spiral-order
         ///     The idea is to treat the matrix as a series of layers, top-right layers and bottom-left layers. 
         ///     To print the matrix spirally we can peel layers from these matrix, print the peeled part and recursively call the print on the left over part. 
