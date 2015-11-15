@@ -14,9 +14,11 @@ namespace InterviewPreparation
 
             int[,] array2D = { { 1, 2, 3 }, { 3, 4, 4 }, { 5, 6, 6 }, { 7, 8, 9 } };
             int[] array1D = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            int[] binaryArray = { 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1 };
 
             //array.PrintInSpiralOrder(array2D);
-            array.ArrangeArrya(array1D);
+            //array.ArrangeArrya(array1D);
+            array.FlipZeros(binaryArray, 2);
 
             #region String Operations
             StringOperation strOpe = new StringOperation();

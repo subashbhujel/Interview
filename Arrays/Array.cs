@@ -38,6 +38,78 @@ namespace InterviewPreparation
         }
 
         /// <summary>
+        /// Q. Find zeroes to be flipped so that number of consecutive 1’s is maximized
+        /// Example: 
+        ///     Input:   arr[] = {1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1}
+        ///     m = 2
+        ///     Output:  5 7
+        ///     We are allowed to flip maximum 2 zeroes. If we flip
+        ///     arr[5] and arr[7], we get 8 consecutive 1's which is
+        ///     maximum possible under given constraints
+        ///     
+        ///  Approach:
+        ///     An Efficient Solution can solve the problem in O(n) time and O(1) space. 
+        ///     The idea is to use Sliding Window for the given array. The solution is taken from here.
+        ///     Let us use a window covering from index wL to index wR. Let the number of zeros inside the window be zeroCount. 
+        ///     We maintain the window with at most m zeros inside.
+        ///     The main steps are:
+        ///         – While zeroCount is no more than m: expand the window to the right (wR++) and update the count zeroCount.
+        ///         - WWhile zeroCount exceeds m, shrink the window from left (wL++), update zeroCount;
+        ///         – Update the widest window along the way. The positions of output zeros are inside the best window.
+        /// </summary>
+        /// <param name="array">Array that needs flipping</param>
+        /// <param name="count">Number of Zeros you can flip withing an array</param>
+        public void FlipZeros(int[] array, int count)
+        {
+            // left and right indexes of the widest window
+            int wLeft = 0, wRight = 0;
+
+            // Count of zeros in the current window
+            int nZero = 0;
+
+            // left & right index and the size of the widest window
+            int bestWindowWidth = 0;
+            int bestWLeft = 0, bestWRight = 0;
+
+            // While right boundary of current window doesn't cross
+            // Right end
+            while (wRight < array.Length)
+            {
+                // If zero cound of current window is less than the count
+                if (nZero <= count)
+                {
+                    if (array[wRight] == 0)
+                        nZero++;
+                    wRight++;
+                }
+                // If zero count of current window is more than the count
+                if (nZero > count)
+                {
+                    if (array[wLeft] == 0)
+                        nZero--;
+                    wLeft++;
+                }
+
+                // Update the widest window if this window size is more
+                if (wRight - wLeft > bestWindowWidth)
+                {
+                    bestWindowWidth = wRight - wLeft;
+                    bestWLeft = wLeft;
+                    bestWRight = wRight;
+                }
+            }
+
+            // Print the positions of zeros in the widest window
+            for (int i = 0; i < bestWindowWidth; i++)
+            {
+                if (array[bestWLeft + i] == 0)
+                {
+                    Console.WriteLine(bestWLeft + i);
+                }
+            }
+        }
+
+        /// <summary>
         /// Q. Sort an Array such that the odd numbers appear first followed by the even numbers . 
         ///     http://algorithms.tutorialhorizon.com/sort-an-array-such-that-the-odd-numbers-appear-first-followed-by-the-even-numbers-the-odd-numbers-in-ascending-order-and-the-even-numbers-in-descending-order/
         ///     Exam­ple:
