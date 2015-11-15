@@ -160,6 +160,63 @@ namespace InterviewPreparation
         }
 
         /// <summary>
+        /// This function rotates a linked list counter-clockwise and updates the head.
+        /// The function assumes that k is smaller than size of linked list. It doesn't
+        /// modify the list if k is greater than or equal to size
+        /// 
+        /// For example, 
+        ///     if the given linked list is 10->20->30->40->50->60 and k is 4, 
+        ///     the list should be modified to 50->60->10->20->30->40. Assume that k is smaller than the count of nodes in linked list.
+        /// </summary>
+        /// <param name="linkedList">Linked list</param>
+        /// <param name="rotateBy">Rotateby</param>
+        public void RotateByCertainNumber(LList linkedList, int rotateBy)
+        {
+            if (head == null || rotateBy < 1) return;
+
+            Console.WriteLine("Before::");
+            Print();
+
+            temp1 = head;
+            temp2 = head;
+            Node temp3 = head;
+
+            // current will either point to kth or NULL after this loop.
+            //  current will point to node 40 in the above example
+            int count = 1;
+            while (temp1 != null && count < rotateBy)
+            {
+                temp1 = temp1.next;
+                count++;
+            }
+
+            // If current is NULL, k is greater than or equal to count
+            // of nodes in linked list. Don't change the list in this case
+            if (temp1 == null)
+            { return; }
+
+            // current points to kth node. Store it in a variable.
+            // kthNode points to node 40 in the above example
+            temp2 = temp1;
+
+            // current will point to last node after this loop
+            // current will point to node 60 in the above example
+            while (temp1.next != null)
+            {
+                temp1 = temp1.next;
+            }
+
+            // stitching the nodes together
+            temp1.next = head;
+            head = temp2.next;
+            temp2.next = null;
+
+            Console.WriteLine("Before::");
+            Print();
+
+        }
+
+        /// <summary>
         /// Q1.- Written exam (Amazon, Bangalore)
         /// Given a singly link list and a number 'K', swap the Kth node from the start with the Kth node from the last. Check all the edge cases.
         /// Sample Input: 1->2->3->4->5->6->7->8 and K = 3
@@ -251,6 +308,47 @@ namespace InterviewPreparation
             #endregion
         }
 
+        /// <summary>
+        /// Reverses a linked list
+        /// Approach: 
+        ///     1. Use three pointers temp, pre and next
+        ///     2. temp points to head of a LL
+        ///     3. pre/next null
+        ///     4. Move until temp reaches end of a LL
+        ///     5. Change next to temp.next
+        ///     6. temp.next to pre
+        ///     7. Pre = temp;
+        ///     8. When teamp reaches to end of the LL, point head to pre. Return.
+        /// </summary>
+        /// <param name="linkedList">Linked list</param>
+        public void Reverse(LList linkedList)
+        {
+            Node temp = head;
+            Node pre = null;
+            Node next = null;
+
+            if (temp == null)
+            {
+                Console.WriteLine(" Empty Linkedlist");
+                return;
+            }
+
+            Console.WriteLine("Before::");
+            Print();
+
+            // Run a loop unti it reaches end of the linked list.
+            while (temp != null)
+            {
+                next = temp.next;
+                temp.next = pre;
+                pre = temp;
+                temp = next;
+            }
+
+            head = pre;
+            Console.WriteLine("Before::");
+            Print();
+        }
         public void ReverseAList()
         {
             if (IsListEmpty())

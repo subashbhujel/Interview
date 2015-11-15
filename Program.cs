@@ -10,6 +10,9 @@ namespace InterviewPreparation
     {
         static void Main(string[] args)
         {
+
+            #region Array
+
             ArrayOperatios array = new ArrayOperatios();
 
             int[,] array2D = { { 1, 2, 3 }, { 3, 4, 4 }, { 5, 6, 6 }, { 7, 8, 9 } };
@@ -18,9 +21,12 @@ namespace InterviewPreparation
 
             //array.PrintInSpiralOrder(array2D);
             //array.ArrangeArrya(array1D);
-            array.FlipZeros(binaryArray, 2);
+            //array.FlipZeros(binaryArray, 2);
 
-            #region String Operations
+            #endregion
+
+            #region Strings
+
             StringOperation strOpe = new StringOperation();
 
             //Reverse A String
@@ -45,7 +51,7 @@ namespace InterviewPreparation
 
             #endregion
 
-            #region Stack Operations
+            #region Stack
 
             //Stack.Stack stack = new Stack.Stack();
 
@@ -64,28 +70,33 @@ namespace InterviewPreparation
             //Console.WriteLine("The max number is : " + stack.GetMax());
 
             #endregion
+
             #region Linked List
 
-            /*
-           LinkedList ll = new LinkedList();
-           LinkedList<string> str = ll.CreateALinkedList();
-           ll.Display(str);
-           Console.WriteLine("\nThe Middle Element is : " + ll.FindMiddleElement(str));
-           */
+            LinkedList<int> linkedList = new LinkedList<int>(array1D);
+
+
+            //LinkedList<string> str = ll.CreateALinkedList();
+            //ll.Print(str);            
+            //Console.WriteLine("\nThe Middle Element is : " + ll.FindMiddleElement(str));
+
 
             //strOpe.FindLongestNonrepeatingChars("abababdetest");
             //DoubleLL.DoublyLL Dll = new DoubleLL.DoublyLL();
             //Dll.Print();
-            //LList ll = new LList();
-            //ll.Add(1);
-            //ll.Add(2);
-            //ll.Add(3);
-            //ll.Add(4);
-            //ll.Add(5);
 
+            LList ll = new LList();
+
+            ll.Add(1);
+            ll.Add(2);
+            ll.Add(3);
+            ll.Add(4);
+            ll.Add(5);
+            ll.Add(6);
             //Console.WriteLine(4 & 4);
-            //ll.Print();
-
+            ll.Print();
+            //ll.Reverse(ll);
+            ll.RotateByCertainNumber(ll, 2);
             //ll.SwapConsecutiveElements();
             //ll.Print();
             //ll.CreateACycle(2);
