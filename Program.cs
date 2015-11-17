@@ -28,7 +28,7 @@ namespace InterviewPreparation
             #region Strings
 
             StringOperation strOpe = new StringOperation();
-
+            Console.WriteLine(strOpe.ArrangeStringUsingKeys("bana#na", "abc"));
             //Reverse A String
             //strOpe.ReverseString("1234567890");
             //strOpe.ReverseString("ABCDEFGHIJKLMNOPQRSTUVWXY");
@@ -87,16 +87,16 @@ namespace InterviewPreparation
 
             LList ll = new LList();
 
-            ll.Add(1);
-            ll.Add(2);
-            ll.Add(3);
-            ll.Add(4);
-            ll.Add(5);
-            ll.Add(6);
+            //ll.Add(1);
+            //ll.Add(2);
+            //ll.Add(3);
+            //ll.Add(4);
+            //ll.Add(5);
+            //ll.Add(6);
             //Console.WriteLine(4 & 4);
-            ll.Print();
+            //ll.Print();
             //ll.Reverse(ll);
-            ll.RotateByCertainNumber(ll, 2);
+            //ll.RotateByCertainNumber(ll, 2);
             //ll.SwapConsecutiveElements();
             //ll.Print();
             //ll.CreateACycle(2);

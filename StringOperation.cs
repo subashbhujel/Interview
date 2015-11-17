@@ -4,12 +4,99 @@
     using System.Threading;
     using System.Collections.Generic;
     using System.Text;
+    using System.Collections;
 
     /// <summary>
     /// All numeric, array and string operations
     /// </summary>
     class StringOperation
     {
+        /// <summary>
+        /// Interview: MSFT, Order management service.
+        /// Input: Bana#na
+        /// Keys: abc
+        /// Output: aaabn#n
+        /// Note: Chars that are not keys, should be arranged after the ones that matches the key in order.
+        /// </summary>
+        /// <param name="input">Input string</param>
+        /// <param name="keys">Keys</param>
+        /// <returns>Sorted string</returns>
+        public string ArrangeStringUsingKeys(string input, string keys)
+        {
+            StringBuilder result = new StringBuilder();
+
+            if (string.IsNullOrEmpty(input))
+                return string.Empty;
+
+            if (string.IsNullOrEmpty(keys))
+                return input;
+
+            // Keep all keys here
+            Hashtable keysHash = new Hashtable();
+
+            //Keey all chars and it's number of occurances here from "input" string
+            Hashtable hashtable = new Hashtable();
+
+            // Stores all characters in order it appeared in input that is NOT a key
+            Queue<char> q = new Queue<char>();
+
+            // Keep all keys in hash
+            foreach (char c in keys)
+            {
+                keysHash[c] = 0; // initialized to zero for no reason. No use of it in this program.
+            }
+
+            // run it through each character in an input string
+            foreach (char c in input)
+            {
+                // Check if this character is a key! // Put it in a queue if it is.
+                if (!keysHash.ContainsKey(c))
+                {
+                    q.Enqueue(c);
+                }
+                else // Put it in hashtable if it's a key.
+                {
+                    // If it was previously added, increment it's count that reflects its occurances.
+                    if (hashtable.ContainsKey(c))
+                    {
+                        int count = Convert.ToInt32(hashtable[c]);
+                        hashtable[c] = ++count;
+                    }
+                    else // Add it to the table if it doesn't already exist.
+                    {
+                        hashtable[c] = 1;
+                    }
+                }
+            }
+
+            // If there's nothing on the hashtable, no need to loop through.
+            if (hashtable.Count > 0)
+            {
+                // Go thorugh each key, value in a hashtable that has key and its count ie the number of occurances
+                foreach (DictionaryEntry entry in hashtable)
+                {
+                    // Add it to the result the number of time it occured in an input array.
+                    for (int i = 0; i < Convert.ToInt32(entry.Value); i++)
+                    {
+                        result.Append(entry.Key);
+                    }
+                }
+            }
+
+            // Now add the remaining characters from the queue. Thse are those characters that didn't match the keys.
+            if (q.Count > 0)
+            {
+                while (q.Count > 0)
+                {
+                    result.Append(q.Dequeue());
+                }
+            }
+
+            // Return the result.
+            return result.ToString();
+
+        }
+
         /// <summary>
         /// you are given n-strings 
         ///     1. you have to find whether a chain can be termed with all the strings given number n? 
