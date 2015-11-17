@@ -11,8 +11,10 @@
     class StringOperation
     {
         /// <summary>
-        /// you are given n-strings 1you have to find whether a chain can be termed with all the strings given number n? 
-        /// A chain can be formed b/w strings if last char of the 1st string matches with 1st char of second string. 
+        /// you are given n-strings 
+        ///     1. you have to find whether a chain can be termed with all the strings given number n? 
+        ///         A chain can be formed b/w strings if last char of the 1st string matches with 1st char of second string. 
+        /// 
         /// For example you are given
         ///         number of strings = 3
         ///     first string=sdfg

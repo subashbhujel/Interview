@@ -88,16 +88,18 @@ namespace InterviewPreparation
         /// <summary>
         ///  Find if the list is cyclic
         ///  bool findCircular(Node *head)
-        ///{
+        /// {
         ///   Node *slower, * faster;
         ///   slower = head;
         ///   faster = head->next; //start faster one node ahead
-        ///   while(true) {
-
+        ///   
+        ///     while(true) {
+        ///     
         ///     // if the faster pointer encounters a NULL element
         ///     if( !faster || !faster->next)
         ///       return false;
-        ///    //if faster pointer ever equals slower or faster's next
+        ///    
+        ///     //if faster pointer ever equals slower or faster's next
         ///    //pointer is ever equal to slow then it's a circular list
         ///     else if (faster == slower || faster->next == slower)
         ///        return true;
@@ -349,6 +351,7 @@ namespace InterviewPreparation
             Console.WriteLine("Before::");
             Print();
         }
+
         public void ReverseAList()
         {
             if (IsListEmpty())
