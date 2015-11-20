@@ -9,7 +9,12 @@ namespace InterviewPreparation
     class LList
     {
         private Node head = null;
-        private Node temp1 = null, temp2 = null;
+        private Node temp1 = null, temp2 = null, current = null;
+
+        // Q http://www.geeksforgeeks.org/clone-linked-list-next-arbit-pointer-set-2/
+        // Clone a linked list with next and random pointer | Set 2 January 5, 2015
+        // We have already discussed 2 different ways to clone a linked list.
+        // In this post, one more simple method to clone a linked list is discussed.
 
         /// <summary>
         ///  Find the length of a linked list which contains cycle.
@@ -81,7 +86,32 @@ namespace InterviewPreparation
         /// </summary>
         public void SwapConsecutiveElements()
         {
+            // Check for empty linked list.
+            if (head == null)
+            {
+                Console.WriteLine("Empty linkedlist.");
+                return;
+            }
+
+            current = head;
+
+            // run a loop until end of the linkedlist
+            while (current != null)
+            {
+                // If next element is null, in an odd number of elements, do not proceed.
+                if (current.next == null) break;
+
+                // Swap the values if not.
+                int temp = current.val;
+                current.val = current.next.val;
+                current.next.val = temp;
+
+                // Move current to 2 steps
+                current = current.next.next;
+            }
+
             Console.WriteLine("After swapping.");
+            Print();
 
         }
 

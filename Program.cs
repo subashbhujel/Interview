@@ -92,12 +92,12 @@ namespace InterviewPreparation
             ll.Add(3);
             ll.Add(4);
             ll.Add(5);
-            ll.Add(6);
+            //ll.Add(6);
             //Console.WriteLine(4 & 4);
             ll.Print();
             //ll.Reverse(ll);
-            ll.RotateByCertainNumber(ll, 2);
-            //ll.SwapConsecutiveElements();
+            //ll.RotateByCertainNumber(ll, 2);
+            ll.SwapConsecutiveElements();
             //ll.Print();
             //ll.CreateACycle(2);
             // ll.PrintTheLengthOfCyclicList();
