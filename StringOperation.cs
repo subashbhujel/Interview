@@ -12,6 +12,62 @@
     class StringOperation
     {
         /// <summary>
+        /// Check if edit distance between two strings is one
+        /// An edit between two strings is one of the following changes.
+        /// Add a character
+        /// Delete a character
+        /// Change a character
+        /// </summary>
+        /// <param name="s1"></param>
+        /// <param name="s2"></param>
+        /// <returns></returns>
+        public bool CheckTheEditdistance(string s1, string s2)
+        {
+            bool isDistanceOne = false;
+
+            if (string.IsNullOrEmpty(s1) && string.IsNullOrEmpty(s2))
+                return isDistanceOne;
+
+            int len1 = s1.Length;
+            int len2 = s2.Length;
+
+            if (Math.Abs(len1 - len2) > 1) return isDistanceOne;
+
+            int count = 0, i = 0, j = 0;
+
+            // run a loop 
+            while (i < len1 && j < len2)
+            {
+                // Check if chars are NOT equal.
+                if (s1[i] != s2[j])
+                {
+                    // If it count was already 1, getting here would make it more than 1, so return false.
+                    if (count == 1) return false;
+
+                    // Move pointer to the array of the longest string
+                    if (len1 > len2) i++;
+                    else if (len2 > len1) j++;
+                    else { i++; j++; }
+
+                    // Increment the count
+                    count++;
+                }
+                else // The chars matches, increment both pointers
+                {
+                    i++; j++;
+                }
+            }
+
+            // For any chars left in an array. Extra chars.
+            if (i < len1 || j < len2)
+            {
+                count++;
+            }
+
+
+            return count == 1;
+        }
+        /// <summary>
         /// Interview: MSFT, Order management service.
         /// Input: Bana#na
         /// Keys: abc
