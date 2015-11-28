@@ -24,6 +24,82 @@ namespace InterviewPreparation.BST
         public Node root { get; set; }
 
         /// <summary>
+        /// Finds a common ancestor of the given two nodes.
+        /// </summary>
+        /// <param name="temp">Root node</param>
+        /// <param name="n1">Fist element</param>
+        /// <param name="n2">Second Element</param>
+        public void FindCommonAncestor(Node temp, int n1, int n2)
+        {
+            if (temp == null)
+            {
+                Console.WriteLine("No common Ancestor.");
+                return;
+            }
+
+            // If both values are less than the temp, go left.
+            if (n1 < temp.data && n2 < temp.data)
+            {
+                FindCommonAncestor(temp.left, n1, n2);
+            }
+            // If both n1 and n2 are greater than root, then LCA lies in right
+            else if (n1 > temp.data && n2 > temp.data)
+            {
+                FindCommonAncestor(temp.right, n1, n2);
+            }
+            else
+                Console.WriteLine("Common Ancestor of " + n1 + " & " + n2 + " : " + temp.data);
+
+        }
+
+        /// <summary>
+        /// K’th Largest Element in BST when modification to BST is not allowed
+        /// Given a Binary Search Tree (BST) and a positive integer k, find the k’th largest element in the Binary Search Tree.
+        /// </summary>
+        /// <param name="temp">Root node</param>
+        /// <returns>Kth largest element</returns>
+        public void FindKthLargestElement(Node temp, int k)
+        {
+            int count = 0;
+            FindKthLargestElement_(root, k);//, ref count);
+        }
+        /// <summary>
+        /// K’th Largest Element in BST when modification to BST is not allowed
+        /// Given a Binary Search Tree (BST) and a positive integer k, find the k’th largest element in the Binary Search Tree.
+        /// </summary>
+        /// <param name="temp">Root node</param>
+        /// <returns>Kth largest element</returns>
+        public void FindKthLargestElement_(Node temp, int k)//, ref int count)
+        {
+            if (temp != null || k < 0) return;
+
+            FindKthLargestElement_(temp.right, k);
+
+            --k;
+
+            if (k == 0)
+            {
+                Console.WriteLine(k + "th element is : " + temp.data);
+                return;
+            }
+
+            FindKthLargestElement_(temp.left, k);
+
+            //if (temp == null && count >= k) return;
+
+            //FindKthLargestElement_(temp.right, k, ref count);
+            //count++;
+
+            //if (count == k)
+            //{
+            //    Console.WriteLine(k + "th element is : " + temp.data);
+            //    return;
+            //}
+
+            //FindKthLargestElement_(temp.left, k, ref count);
+        }
+
+        /// <summary>
         /// Count BST nodes that lie in a given range
         /// Given a Binary Search Tree (BST) and a range, count number of nodes that lie in the given range.
         /// </summary>
@@ -215,7 +291,7 @@ namespace InterviewPreparation.BST
                 Console.Write(n.data + " ");
                 Print(n.right);
             }
-            Console.WriteLine();
+            //Console.WriteLine();
         }
 
         /// <summary>

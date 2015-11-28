@@ -134,7 +134,12 @@ namespace InterviewPreparation
             //Console.WriteLine("Min Value is : "+bst.FindMin());
             //Console.WriteLine("Height of a BST is : " + bst.FindHeight());
 
-            Console.WriteLine("Number of nodes within the range : " + bst.CountNodesInARange(bst.root, -50,300));
+            //Console.WriteLine("Number of nodes within the range : " + bst.CountNodesInARange(bst.root, -50,300));
+            Console.WriteLine();
+            //bst.FindKthLargestElement(bst.root, 2);
+            bst.FindCommonAncestor(bst.root, 10, -15);
+            Console.WriteLine();
+            //Console.WriteLine("Kth largest element : "+bst.FindKthLargestElement(bst.root, 2));
 
             #endregion
         }
