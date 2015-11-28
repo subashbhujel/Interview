@@ -11,14 +11,98 @@ namespace InterviewPreparation.BST
     /// </summary>
     class BST
     {
-        Node root, temp;
+        Node temp;
 
         /// <summary>
         /// Constructor
         /// </summary>
         public BST()
         {
-            root = null;
+            this.root = null;
+        }
+
+        public Node root { get; set; }
+
+        /// <summary>
+        /// Count BST nodes that lie in a given range
+        /// Given a Binary Search Tree (BST) and a range, count number of nodes that lie in the given range.
+        /// </summary>
+        /// <param name="low">Low value</param>
+        /// <param name="high">Hight value</param>
+        /// <returns>Count of nodes</returns>
+        public int CountNodesInARange(Node temp, int low, int high)
+        {
+            // Null node, n return 0
+            if (temp == null) return 0;
+
+            // If data equals to both low and high. Edge case. This will increase efficiency.
+            if (temp.data == low && temp.data == high) return 1;
+
+            // data is in between low and high range
+            if (temp.data >= low && temp.data <= high)
+            {
+                return 1 + CountNodesInARange(temp.left, low, high) + CountNodesInARange(temp.right, low, high);
+            }
+
+                // Data is less than the lower range. Go right.
+            else if (temp.data < low)
+            {
+                return CountNodesInARange(temp.right, low, high);
+            }
+            else // Data is more than the higher range. Go left.
+            {
+                return CountNodesInARange(temp.left, low, high);
+            }
+        }
+
+        /// <summary>
+        /// Finds the height of a BST recursively
+        /// </summary>
+        /// <param name="temp">Node</param>
+        /// <returns>Height of a BST</returns>
+        public int FindHeight(Node temp)
+        {
+            if (temp == null) return -1;
+
+            int leftHeight = FindHeight(temp.left);
+            int rightHeight = FindHeight(temp.right);
+
+            if (leftHeight > rightHeight)
+                return leftHeight + 1;
+            else
+                return rightHeight + 1;
+        }
+
+        /// <summary>
+        /// Finda a minimum value in a BST
+        /// </summary>
+        /// <returns>A minimum value.</returns>
+        public int FindMin()
+        {
+            // BST is empty.
+            if (IsEmpty())
+            {
+                Console.WriteLine("BST is empty.");
+                return int.MinValue;
+            }
+
+            // Initialize a runner pointer
+            temp = root;
+
+            // Stores a minmum number
+            int min = temp.data;
+
+            // run a loop until you reach the leftmost node
+            while (temp != null)
+            {
+                // Move to a left node cause that's where leftmost ie minimum value node is
+                temp = temp.left;
+                // Update a minimum value ONLY IF temp is NOT pointing to null
+                if (temp != null) min = temp.data;
+            }
+
+            // Return minimum value.
+            return min;
         }
 
         /// <summary>
@@ -61,28 +145,17 @@ namespace InterviewPreparation.BST
         /// <summary>
         /// Finds an item in a BST recursive way
         /// </summary>
-        /// <param name="data">Data to find</param>
-        /// <returns>True or false</returns>
-        public bool FindRecursive(int data)
-        {
-            temp = root;
-            return FindRecursive_(temp, data);
-        }
-
-        /// <summary>
-        /// Finds an item in a BST recursive way
-        /// </summary>
         /// <param name="temp">Starting node</param>
         /// <param name="data">Data to find</param>
         /// <returns>True or false</returns>
-        private bool FindRecursive_(Node temp, int data)
+        private bool FindRecursive(Node temp, int data)
         {
             // Node is null. Data do not exist.
             if (temp == null) return false;
 
             return temp.data == data ||
-                    FindRecursive_(temp.left, data) ||
-                    FindRecursive_(temp.right, data);
+                    FindRecursive(temp.left, data) ||
+                    FindRecursive(temp.right, data);
         }
 
         /// <summary>
@@ -131,32 +204,18 @@ namespace InterviewPreparation.BST
         }
 
         /// <summary>
-        /// Prints a BST recursively.
-        /// </summary>
-        public void Print()
-        {
-            if (IsEmpty())
-            {
-                Console.WriteLine("BST is Empty");
-                return;
-            }
-
-            PrintRecursive(root);
-            Console.WriteLine();
-        }
-
-        /// <summary>
         /// Prints a BST recursively
         /// </summary>
         /// <param name="n">Node to start printing.</param>
-        private void PrintRecursive(Node n)
+        public void Print(Node n)
         {
             if (n != null)
             {
-                PrintRecursive(n.left);
+                Print(n.left);
                 Console.Write(n.data + " ");
-                PrintRecursive(n.right);
+                Print(n.right);
             }
+            Console.WriteLine();
         }
 
         /// <summary>

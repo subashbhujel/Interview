@@ -28,7 +28,7 @@ namespace InterviewPreparation
             #region Strings
 
             StringOperation strOpe = new StringOperation();
-            Console.WriteLine(strOpe.ArrangeStringUsingKeys("bana#na", "abc"));
+            //Console.WriteLine(strOpe.ArrangeStringUsingKeys("bana#na", "abc"));
             //Reverse A String
             //strOpe.ReverseString("1234567890");
             //strOpe.ReverseString("ABCDEFGHIJKLMNOPQRSTUVWXY");
@@ -124,13 +124,17 @@ namespace InterviewPreparation
             bst.Add(22);
             bst.Add(90);
             bst.Add(48);
+            bst.Add(50);
+            bst.Print(bst.root);
 
-            bst.Print();
+            //Console.WriteLine(bst.FindRecursive(bst.root,15) ? "Found!" : "Not Found!");
+            //Console.WriteLine(bst.FindRecursive(bst.root,48) ? "Found!" : "Not Found!");
+            //Console.WriteLine(bst.FindRecursive(bst.root,190) ? "Found!" : "Not Found!");
+            //bst.IsBST();
+            //Console.WriteLine("Min Value is : "+bst.FindMin());
+            //Console.WriteLine("Height of a BST is : " + bst.FindHeight());
 
-            Console.WriteLine(bst.FindRecursive(15) ? "Found!" : "Not Found!");
-            Console.WriteLine(bst.FindRecursive(48) ? "Found!" : "Not Found!");
-            Console.WriteLine(bst.FindRecursive(190) ? "Found!" : "Not Found!");
-            bst.IsBST();
+            Console.WriteLine("Number of nodes within the range : " + bst.CountNodesInARange(bst.root, -50,300));
 
             #endregion
         }
