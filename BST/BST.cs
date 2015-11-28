@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace InterviewPreparation.BST
 {
+    /// <summary>
+    /// Binary Search Tree
+    /// </summary>
     class BST
     {
         Node root, temp;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public BST()
         {
             root = null;
@@ -52,6 +58,38 @@ namespace InterviewPreparation.BST
             }
         }
 
+        /// <summary>
+        /// Finds an item in a BST recursive way
+        /// </summary>
+        /// <param name="data">Data to find</param>
+        /// <returns>True or false</returns>
+        public bool FindRecursive(int data)
+        {
+            temp = root;
+            return FindRecursive_(temp, data);
+        }
+
+        /// <summary>
+        /// Finds an item in a BST recursive way
+        /// </summary>
+        /// <param name="temp">Starting node</param>
+        /// <param name="data">Data to find</param>
+        /// <returns>True or false</returns>
+        private bool FindRecursive_(Node temp, int data)
+        {
+            // Node is null. Data do not exist.
+            if (temp == null) return false;
+
+            return temp.data == data ||
+                    FindRecursive_(temp.left, data) ||
+                    FindRecursive_(temp.right, data);
+        }
+
+        /// <summary>
+        /// Finds an item in a BST iterative way
+        /// </summary>
+        /// <param name="data">Data to find</param>
+        /// <returns>True or false</returns>
         public bool Find(int data)
         {
             Console.Write("\nLooking for " + data + " : ");
@@ -92,6 +130,9 @@ namespace InterviewPreparation.BST
             }
         }
 
+        /// <summary>
+        /// Prints a BST recursively.
+        /// </summary>
         public void Print()
         {
             if (IsEmpty())
@@ -104,6 +145,10 @@ namespace InterviewPreparation.BST
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Prints a BST recursively
+        /// </summary>
+        /// <param name="n">Node to start printing.</param>
         private void PrintRecursive(Node n)
         {
             if (n != null)
@@ -114,6 +159,10 @@ namespace InterviewPreparation.BST
             }
         }
 
+        /// <summary>
+        /// Adds an item to a BST
+        /// </summary>
+        /// <param name="data">Item to add.</param>
         public void Add(int data)
         {
             if (root == null)
@@ -154,6 +203,10 @@ namespace InterviewPreparation.BST
             }
         }
 
+        /// <summary>
+        /// Checks if BST is empty
+        /// </summary>
+        /// <returns></returns>
         public bool IsEmpty()
         {
             if (root == null)
@@ -163,25 +216,5 @@ namespace InterviewPreparation.BST
             return false;
         }
     }
-
-    class Node
-    {
-        public Node left;
-        public int data;
-        public Node right;
-
-        public Node(int data)
-        {
-            this.left = null;
-            this.data = data;
-            this.right = null;
-        }
-
-        public Node(Node left, int data, Node right)
-        {
-            this.left = left;
-            this.data = data;
-            this.right = right;
-        }
-    }
 }
+

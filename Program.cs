@@ -85,19 +85,19 @@ namespace InterviewPreparation
             //DoubleLL.DoublyLL Dll = new DoubleLL.DoublyLL();
             //Dll.Print();
 
-            LList ll = new LList();
+            //LList ll = new LList();
 
-            ll.Add(1);
-            ll.Add(2);
-            ll.Add(3);
-            ll.Add(4);
-            ll.Add(5);
+            //ll.Add(1);
+            //ll.Add(2);
+            //ll.Add(3);
+            //ll.Add(4);
+            //ll.Add(5);
             //ll.Add(6);
             //Console.WriteLine(4 & 4);
             //ll.Print();
             //ll.Reverse(ll);
             //ll.RotateByCertainNumber(ll, 2);
-            ll.SwapConsecutiveElements();
+            //ll.SwapConsecutiveElements();
             //ll.Print();
             //ll.CreateACycle(2);
             // ll.PrintTheLengthOfCyclicList();
@@ -116,20 +116,21 @@ namespace InterviewPreparation
 
             #region BST
 
-            //BST.BST bst = new BST.BST();
-            //bst.Add(21);
-            //bst.Add(10);
-            //bst.Add(15);
-            //bst.Add(45);
-            //bst.Add(22);
-            //bst.Add(90);
-            //bst.Add(48);
+            BST.BST bst = new BST.BST();
+            bst.Add(21);
+            bst.Add(10);
+            bst.Add(15);
+            bst.Add(45);
+            bst.Add(22);
+            bst.Add(90);
+            bst.Add(48);
 
-            //bst.Print();
+            bst.Print();
 
-            //Console.WriteLine(bst.Find(15) ? "Found!" : "Not Found!");
-
-            //bst.IsBST();
+            Console.WriteLine(bst.FindRecursive(15) ? "Found!" : "Not Found!");
+            Console.WriteLine(bst.FindRecursive(48) ? "Found!" : "Not Found!");
+            Console.WriteLine(bst.FindRecursive(190) ? "Found!" : "Not Found!");
+            bst.IsBST();
 
             #endregion
         }
