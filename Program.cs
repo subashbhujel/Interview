@@ -28,6 +28,8 @@ namespace InterviewPreparation
             #region Strings
 
             StringOperation strOpe = new StringOperation();
+            //Console.WriteLine(strOpe.ReverseAStringOnly("a&bcd$#"));
+            strOpe.RemoveSpaces("g  eeks   for ge  eeks  ");
             //Console.WriteLine(strOpe.ArrangeStringUsingKeys("bana#na", "abc"));
             //Reverse A String
             //strOpe.ReverseString("1234567890");
@@ -117,15 +119,15 @@ namespace InterviewPreparation
             #region BST
 
             BST.BST bst = new BST.BST();
-            bst.Add(21);
-            bst.Add(10);
-            bst.Add(15);
-            bst.Add(45);
-            bst.Add(22);
-            bst.Add(90);
-            bst.Add(48);
-            bst.Add(50);
-            bst.Print(bst.root);
+            //bst.Add(21);
+            //bst.Add(10);
+            //bst.Add(15);
+            //bst.Add(45);
+            //bst.Add(22);
+            //bst.Add(90);
+            //bst.Add(48);
+            //bst.Add(50);
+            //bst.Print(bst.root);
 
             //Console.WriteLine(bst.FindRecursive(bst.root,15) ? "Found!" : "Not Found!");
             //Console.WriteLine(bst.FindRecursive(bst.root,48) ? "Found!" : "Not Found!");
@@ -135,10 +137,10 @@ namespace InterviewPreparation
             //Console.WriteLine("Height of a BST is : " + bst.FindHeight());
 
             //Console.WriteLine("Number of nodes within the range : " + bst.CountNodesInARange(bst.root, -50,300));
-            Console.WriteLine();
+            //Console.WriteLine();
             //bst.FindKthLargestElement(bst.root, 2);
-            bst.FindCommonAncestor(bst.root, 10, -15);
-            Console.WriteLine();
+            //bst.FindCommonAncestor(bst.root, 10, -15);
+            //Console.WriteLine();
             //Console.WriteLine("Kth largest element : "+bst.FindKthLargestElement(bst.root, 2));
 
             #endregion
