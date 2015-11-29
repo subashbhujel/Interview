@@ -51,29 +51,19 @@ namespace InterviewPreparation.BST
                 Console.WriteLine("Common Ancestor of " + n1 + " & " + n2 + " : " + temp.data);
 
         }
-
+               
         /// <summary>
         /// K’th Largest Element in BST when modification to BST is not allowed
         /// Given a Binary Search Tree (BST) and a positive integer k, find the k’th largest element in the Binary Search Tree.
         /// </summary>
         /// <param name="temp">Root node</param>
         /// <returns>Kth largest element</returns>
-        public void FindKthLargestElement(Node temp, int k)
+        public void FindKthLargestElement(Node temp, int k)//, ref int count)
         {
-            int count = 0;
-            FindKthLargestElement_(root, k);//, ref count);
-        }
-        /// <summary>
-        /// K’th Largest Element in BST when modification to BST is not allowed
-        /// Given a Binary Search Tree (BST) and a positive integer k, find the k’th largest element in the Binary Search Tree.
-        /// </summary>
-        /// <param name="temp">Root node</param>
-        /// <returns>Kth largest element</returns>
-        public void FindKthLargestElement_(Node temp, int k)//, ref int count)
-        {
+            // NOTE: NOT cpmletely solved. It prints more elements right now.
             if (temp != null || k < 0) return;
 
-            FindKthLargestElement_(temp.right, k);
+            FindKthLargestElement(temp.right, k);
 
             --k;
 
@@ -83,7 +73,7 @@ namespace InterviewPreparation.BST
                 return;
             }
 
-            FindKthLargestElement_(temp.left, k);
+            FindKthLargestElement(temp.left, k);
 
             //if (temp == null && count >= k) return;
 
