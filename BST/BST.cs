@@ -12,6 +12,7 @@ namespace InterviewPreparation.BST
     class BST
     {
         Node temp;
+        LinkedList<int> linkedList;
 
         /// <summary>
         /// Constructor
@@ -19,9 +20,34 @@ namespace InterviewPreparation.BST
         public BST()
         {
             this.root = null;
+            this.linkedList = new LinkedList<int>();
         }
 
         public Node root { get; set; }
+
+        /// <summary>
+        /// Prints a linked list
+        /// </summary>
+        public void PrintLinkedList()
+        {
+            foreach (int item in this.linkedList)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        /// <summary>
+        /// Flatten Binary Tree to Linked List
+        /// </summary>
+        /// <param name="node">Node</param>
+        public void FlattenABST(Node node)
+        {
+            if (node == null) return;
+
+            linkedList.AddLast(node.data);
+            FlattenABST(node.left);
+            FlattenABST(node.right);
+        }
 
         /// <summary>
         /// Finds a common ancestor of the given two nodes.
@@ -51,7 +77,7 @@ namespace InterviewPreparation.BST
                 Console.WriteLine("Common Ancestor of " + n1 + " & " + n2 + " : " + temp.data);
 
         }
-               
+
         /// <summary>
         /// K’th Largest Element in BST when modification to BST is not allowed
         /// Given a Binary Search Tree (BST) and a positive integer k, find the k’th largest element in the Binary Search Tree.
@@ -110,7 +136,7 @@ namespace InterviewPreparation.BST
                 return 1 + CountNodesInARange(temp.left, low, high) + CountNodesInARange(temp.right, low, high);
             }
 
-                // Data is less than the lower range. Go right.
+            // Data is less than the lower range. Go right.
             else if (temp.data < low)
             {
                 return CountNodesInARange(temp.right, low, high);

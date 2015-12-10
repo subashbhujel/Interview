@@ -20,7 +20,7 @@ namespace InterviewPreparation
             int[] binaryArray = { 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1 };
 
             //array.PrintInSpiralOrder(array2D);
-            //array.ArrangeArrya(array1D);
+            //array.ArrangeArray(array1D);
             //array.FlipZeros(binaryArray, 2);
 
             #endregion
@@ -29,7 +29,7 @@ namespace InterviewPreparation
 
             StringOperation strOpe = new StringOperation();
             //Console.WriteLine(strOpe.ReverseAStringOnly("a&bcd$#"));
-            strOpe.RemoveSpaces("g  eeks   for ge  eeks  ");
+            //strOpe.RemoveSpaces("g  eeks   for ge  eeks  ");
             //Console.WriteLine(strOpe.ArrangeStringUsingKeys("bana#na", "abc"));
             //Reverse A String
             //strOpe.ReverseString("1234567890");
@@ -119,15 +119,18 @@ namespace InterviewPreparation
             #region BST
 
             BST.BST bst = new BST.BST();
-            //bst.Add(21);
-            //bst.Add(10);
-            //bst.Add(15);
-            //bst.Add(45);
-            //bst.Add(22);
-            //bst.Add(90);
-            //bst.Add(48);
-            //bst.Add(50);
+            bst.Add(21);
+            bst.Add(10);
+            bst.Add(15);
+            bst.Add(45);
+            bst.Add(22);
+            bst.Add(90);
+            bst.Add(48);
+            bst.Add(50);
             //bst.Print(bst.root);
+
+            bst.FlattenABST(bst.root);
+            bst.PrintLinkedList();
 
             //Console.WriteLine(bst.FindRecursive(bst.root,15) ? "Found!" : "Not Found!");
             //Console.WriteLine(bst.FindRecursive(bst.root,48) ? "Found!" : "Not Found!");

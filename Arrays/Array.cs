@@ -117,7 +117,7 @@ namespace InterviewPreparation
         ///     Out­put : 1 3 5 7 9 10 8 6 4 2
         /// </summary>
         /// <param name="array">Unsorted Array.</param>
-        public void ArrangeArrya(int[] array)
+        public void ArrangeArray(int[] array)
         {
             //int mid = array.Length % 10 == 0 ? array.Length / 2 - 1 : array.Length / 2;
 
