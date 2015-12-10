@@ -75,7 +75,7 @@ namespace InterviewPreparation
             // Right end
             while (wRight < array.Length)
             {
-                // If zero cound of current window is less than the count
+                // If zero count of current window is less than the count
                 if (nZero <= count)
                 {
                     if (array[wRight] == 0)
