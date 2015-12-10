@@ -11,6 +11,107 @@
     /// </summary>
     class StringOperation
     {
+
+        /// <summary>
+        /// Remove spaces from a given string
+        /// Given a string, remove all spaces from the string and return it.
+        /// Input:  "g  eeks   for ge  eeks  "
+        /// Output: "geeksforgeeks"
+        /// Expected time complexity is O(n) and only one traversal of string.
+        /// </summary>
+        /// <param name="s"></param>
+        public void RemoveSpaces(string s)
+        {
+            // Check forn ull case
+            if (string.IsNullOrEmpty(s)) return;
+
+            Console.WriteLine("Before: " + s);
+
+            // Initializing count of spaces.
+            int count = 0;
+
+            // Converting string to char array
+            char[] arr = s.ToCharArray();
+
+            // Loop
+            for (int i = 0; i < arr.Length; i++)
+            {
+                // Check if character is a space
+                if (arr[i] != ' ')
+                {
+                    // Move it up front and increment the count of spaces
+                    arr[count++] = s[i];
+                }
+            }
+
+            // Convert to string
+            s = new string(arr);
+
+            // Take out the string that's moved.
+            s = s.Substring(0, count);
+
+            Console.WriteLine("Before: " + s);
+        }
+
+        /// <summary>
+        /// Reverse an array without affecting special characters
+        /// Given a string, that contains special character together with alphabets (‘a’ to ‘z’ and ‘A’ to ‘Z’), reverse the string in a way that special characters are not affected.
+        /// Examples:
+        /// Input:   str = "a,b$c"
+        /// Output:  str = "c,b$a"
+        /// Note that $ and , are not moved anywhere. 
+        /// Only subsequence "abc" is reversed
+        /// Input:   str = "Ab,c,de!$"
+        /// Output:  str = "ed,c,bA!$"
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public string ReverseAlphabetOnlyFromAString(string s)
+        {
+            // Check for null condition or single char string for efficiency.
+            if (string.IsNullOrEmpty(s) || s.Length <= 1) return s;
+
+            char[] arr = s.ToCharArray();
+            int low = 0;
+            int high = s.Length;
+
+            for (int k = 0; k < high; k++)
+            {
+                // If both pointers cross each other. Stop.
+                if (low > high) break;
+
+                // Check if character is an alphabet
+                if (!IsAlphabet(arr[low])) ++low;
+                if (!IsAlphabet(arr[high])) --high;
+
+                // Check is both of these chars are an alphabet
+                if (IsAlphabet(arr[low]) && IsAlphabet(arr[high]))
+                {
+                    // Swap only if low and high pointers didn't cross each other.
+                    if (low < high)
+                    {
+                        char temp = arr[low];
+                        arr[low] = arr[high];
+                        arr[high] = temp;
+                        low++; high--;
+                    }
+                }
+            }
+
+            // Convert char array -> string and return
+            return new string(arr);
+        }
+
+        /// <summary>
+        /// Checks if a character is an alphabet.
+        /// </summary>
+        /// <param name="c">Character</param>
+        /// <returns>True or False</returns>
+        private bool IsAlphabet(char c)
+        {
+            return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+        }
+
         /// <summary>
         /// Check if edit distance between two strings is one
         /// An edit between two strings is one of the following changes.
@@ -67,6 +168,7 @@
 
             return count == 1;
         }
+
         /// <summary>
         /// Interview: MSFT, Order management service.
         /// Input: Bana#na

@@ -28,7 +28,9 @@ namespace InterviewPreparation
             #region Strings
 
             StringOperation strOpe = new StringOperation();
-            Console.WriteLine(strOpe.ArrangeStringUsingKeys("bana#na", "abc"));
+            //Console.WriteLine(strOpe.ReverseAStringOnly("a&bcd$#"));
+            strOpe.RemoveSpaces("g  eeks   for ge  eeks  ");
+            //Console.WriteLine(strOpe.ArrangeStringUsingKeys("bana#na", "abc"));
             //Reverse A String
             //strOpe.ReverseString("1234567890");
             //strOpe.ReverseString("ABCDEFGHIJKLMNOPQRSTUVWXY");
@@ -85,19 +87,19 @@ namespace InterviewPreparation
             //DoubleLL.DoublyLL Dll = new DoubleLL.DoublyLL();
             //Dll.Print();
 
-            LList ll = new LList();
+            //LList ll = new LList();
 
-            ll.Add(1);
-            ll.Add(2);
-            ll.Add(3);
-            ll.Add(4);
-            ll.Add(5);
+            //ll.Add(1);
+            //ll.Add(2);
+            //ll.Add(3);
+            //ll.Add(4);
+            //ll.Add(5);
             //ll.Add(6);
             //Console.WriteLine(4 & 4);
             //ll.Print();
             //ll.Reverse(ll);
             //ll.RotateByCertainNumber(ll, 2);
-            ll.SwapConsecutiveElements();
+            //ll.SwapConsecutiveElements();
             //ll.Print();
             //ll.CreateACycle(2);
             // ll.PrintTheLengthOfCyclicList();
@@ -116,7 +118,7 @@ namespace InterviewPreparation
 
             #region BST
 
-            //BST.BST bst = new BST.BST();
+            BST.BST bst = new BST.BST();
             //bst.Add(21);
             //bst.Add(10);
             //bst.Add(15);
@@ -124,12 +126,22 @@ namespace InterviewPreparation
             //bst.Add(22);
             //bst.Add(90);
             //bst.Add(48);
+            //bst.Add(50);
+            //bst.Print(bst.root);
 
-            //bst.Print();
-
-            //Console.WriteLine(bst.Find(15) ? "Found!" : "Not Found!");
-
+            //Console.WriteLine(bst.FindRecursive(bst.root,15) ? "Found!" : "Not Found!");
+            //Console.WriteLine(bst.FindRecursive(bst.root,48) ? "Found!" : "Not Found!");
+            //Console.WriteLine(bst.FindRecursive(bst.root,190) ? "Found!" : "Not Found!");
             //bst.IsBST();
+            //Console.WriteLine("Min Value is : "+bst.FindMin());
+            //Console.WriteLine("Height of a BST is : " + bst.FindHeight());
+
+            //Console.WriteLine("Number of nodes within the range : " + bst.CountNodesInARange(bst.root, -50,300));
+            //Console.WriteLine();
+            //bst.FindKthLargestElement(bst.root, 2);
+            //bst.FindCommonAncestor(bst.root, 10, -15);
+            //Console.WriteLine();
+            //Console.WriteLine("Kth largest element : "+bst.FindKthLargestElement(bst.root, 2));
 
             #endregion
         }

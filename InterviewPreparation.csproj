@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Arrays\Array.cs" />
     <Compile Include="BST\BST.cs" />
+    <Compile Include="BST\Node.cs" />
     <Compile Include="LinkedList\DoublyLL.cs" />
     <Compile Include="LinkedList\LinkedList.cs" />
     <Compile Include="LinkedList\LList.cs" />
