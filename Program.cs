@@ -157,18 +157,22 @@ namespace InterviewPreparation
 
             #region Design Patters
 
-            Creator creator = new Creator();
-            //Vehicle vehicle = creator.FacrotyMethod(VehicleType.TwoWheeler);
-            //vehicle.PrintVehicle();
-            //vehicle = creator.FacrotyMethod(VehicleType.FourWheeler);
-            //vehicle.PrintVehicle();
-            //vehicle = creator.FacrotyMethod(VehicleType.ThreeWheeler);
-            //vehicle.PrintVehicle();
+            // Factory Pattern
+            //Creator creator = new Creator();
+            //creator.FacrotyMethod(VehicleType.TwoWheeler).PrintVehicle();
+            //creator.FacrotyMethod(VehicleType.FourWheeler).PrintVehicle();
+            //creator.FacrotyMethod(VehicleType.ThreeWheeler).PrintVehicle();
 
+            // Factory Pattern
             //TicketCreator.FactoryMethod(TicketType.Bus).PrintTicket();
             //TicketCreator.FactoryMethod(TicketType.Train).PrintTicket();
             //TicketCreator.FactoryMethod(TicketType.Flight).PrintTicket();
             //TicketCreator.FactoryMethod(TicketType.Invalid).PrintTicket();
+
+            // Strategy Pattern
+            //new CalculateClient(new Add()).Calculate(10, 15);
+            //new CalculateClient(new Minus()).Calculate(10, 15);
+            //new CalculateClient(new Divide()).Calculate(10, 15);
 
             #endregion
         }

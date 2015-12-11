@@ -48,6 +48,7 @@
     <Compile Include="DesignPattern\Facotry\TravelTicket.cs" />
     <Compile Include="DesignPattern\Facotry\Vehicle.cs" />
     <Compile Include="DesignPattern\Singleton\DBConnection.cs" />
+    <Compile Include="DesignPattern\Strategy\Calculate.cs" />
     <Compile Include="LinkedList\DoublyLL.cs" />
     <Compile Include="LinkedList\LinkedList.cs" />
     <Compile Include="LinkedList\LList.cs" />
