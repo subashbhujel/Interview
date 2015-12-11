@@ -119,18 +119,18 @@ namespace InterviewPreparation
             #region BST
 
             BST.BST bst = new BST.BST();
-            bst.Add(21);
-            bst.Add(10);
-            bst.Add(15);
-            bst.Add(45);
-            bst.Add(22);
-            bst.Add(90);
-            bst.Add(48);
-            bst.Add(50);
+            //bst.Add(21);
+            //bst.Add(10);
+            //bst.Add(15);
+            //bst.Add(45);
+            //bst.Add(22);
+            //bst.Add(90);
+            //bst.Add(48);
+            //bst.Add(50);
             //bst.Print(bst.root);
 
-            bst.FlattenABST(bst.root);
-            bst.PrintLinkedList();
+            //bst.FlattenABST(bst.root);
+            //bst.PrintLinkedList();
 
             //Console.WriteLine(bst.FindRecursive(bst.root,15) ? "Found!" : "Not Found!");
             //Console.WriteLine(bst.FindRecursive(bst.root,48) ? "Found!" : "Not Found!");
@@ -145,6 +145,30 @@ namespace InterviewPreparation
             //bst.FindCommonAncestor(bst.root, 10, -15);
             //Console.WriteLine();
             //Console.WriteLine("Kth largest element : "+bst.FindKthLargestElement(bst.root, 2));
+
+            #endregion
+
+            #region Teaser
+
+            Teaser teaser = new Teaser();
+            //teaser.FindASmallestTwins(6, 17);
+            //teaser.PrintPattern(10);
+            #endregion
+
+            #region Design Patters
+
+            Creator creator = new Creator();
+            //Vehicle vehicle = creator.FacrotyMethod(VehicleType.TwoWheeler);
+            //vehicle.PrintVehicle();
+            //vehicle = creator.FacrotyMethod(VehicleType.FourWheeler);
+            //vehicle.PrintVehicle();
+            //vehicle = creator.FacrotyMethod(VehicleType.ThreeWheeler);
+            //vehicle.PrintVehicle();
+
+            //TicketCreator.FactoryMethod(TicketType.Bus).PrintTicket();
+            //TicketCreator.FactoryMethod(TicketType.Train).PrintTicket();
+            //TicketCreator.FactoryMethod(TicketType.Flight).PrintTicket();
+            //TicketCreator.FactoryMethod(TicketType.Invalid).PrintTicket();
 
             #endregion
         }
