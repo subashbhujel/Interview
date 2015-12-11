@@ -174,6 +174,14 @@ namespace InterviewPreparation
             //new CalculateClient(new Minus()).Calculate(10, 15);
             //new CalculateClient(new Divide()).Calculate(10, 15);
 
+
+            // Adaptor Pattern
+            User user = new User();
+            user.Create();
+
+            user = new Admin();
+            user.Create();
+
             #endregion
         }
     }
