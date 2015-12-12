@@ -153,6 +153,11 @@ namespace InterviewPreparation
             Teaser teaser = new Teaser();
             //teaser.FindASmallestTwins(6, 17);
             //teaser.PrintPattern(10);
+
+            //teaser.StockBuySell(new int[] { 100, 130, 260, 310, 40, 535, 695 });
+            //teaser.SmallestSubWithSum(new int[] { 1, 4, 45, 6, 0, 19 }, 51);
+            //teaser.PrintClosestPair(new int[] { 1, 3, 4, 7, 10 }, 15);
+            //teaser.PrintClosestPair(new int[] { 10, 22, 28, 29, 30, 40 }, 54);
             #endregion
 
             #region Design Patters
@@ -176,11 +181,11 @@ namespace InterviewPreparation
 
 
             // Adaptor Pattern
-            User user = new User();
-            user.Create();
+            //User user = new User();
+            //user.Create();
 
-            user = new Admin();
-            user.Create();
+            //user = new Admin();
+            //user.Create();
 
             #endregion
         }

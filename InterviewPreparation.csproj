@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arrays\Array.cs" />
+    <Compile Include="BrainTeaser\Stock.cs" />
     <Compile Include="BrainTeaser\Teaser.cs" />
     <Compile Include="BST\BST.cs" />
     <Compile Include="BST\Node.cs" />
