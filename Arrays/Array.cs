@@ -8,6 +8,48 @@ namespace InterviewPreparation
 {
     public class ArrayOperatios
     {
+
+        /// <summary>
+        /// Q. Print the largest sum that you can form from the given array.
+        ///     Array is not sorted and can have negative or positive numbers.
+        /// Example: {5,10,-7,5,10,-8,100}
+        /// Output:  107 ie sum of {5, 10, -8, 100}
+        /// 
+        /// Interview Q in Azure - PowerBI
+        /// </summary>
+        /// <param name="a"></param>
+        internal void PrintLargestSum(int[] a)
+        {
+            int len = a.Length;
+            if (len < 0) return;
+            if (len == 1)
+            {
+                Console.WriteLine(a[0]); return;
+            }
+
+            // Initialize the sum to be the first element
+            int sum = a[0];
+
+            // Temp to store current sum
+            int temp = 0;
+
+            // loop until the end of the array
+            for (int i = 0; i < len; i++)
+            {
+                // Add temp with the array value
+                temp += a[i];
+
+                // If temp is greater than the sum, Update sum.
+                if (temp > sum) sum = temp;
+
+                // If temp is less than Zero, reset temp. 
+                if (temp < 0) temp = 0;
+            }
+
+            // the max sum is in your 'sum' variable
+            Console.WriteLine("The max sum is : {0}", sum);
+        }
+
         /// <summary>
         /// Swaps the array element
         /// </summary>

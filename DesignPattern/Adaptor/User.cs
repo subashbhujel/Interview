@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace InterviewPreparation
 {
+    // ADAPTOR STRATEGY PATTERN:
+    // The adapter pattern is a structural design pattern that allows you to repurpose a class with a different interface, 
+    // allowing it to be used by a system which uses different calling methods. 
+
     /// <summary>
     /// User class. The 'Target' Class.
     /// </summary>

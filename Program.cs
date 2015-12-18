@@ -16,9 +16,10 @@ namespace InterviewPreparation
             ArrayOperatios array = new ArrayOperatios();
 
             int[,] array2D = { { 1, 2, 3 }, { 3, 4, 4 }, { 5, 6, 6 }, { 7, 8, 9 } };
-            int[] array1D = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            int[] array1D = { 1, -2, 3, 4, -5, 6, 7, -8, 9 };
             int[] binaryArray = { 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1 };
 
+            //array.PrintLargestSum(array1D);
             //array.PrintInSpiralOrder(array2D);
             //array.ArrangeArray(array1D);
             //array.FlipZeros(binaryArray, 2);
