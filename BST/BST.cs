@@ -15,6 +15,62 @@ namespace InterviewPreparation.BST
         LinkedList<int> linkedList;
 
         /// <summary>
+        /// Print ancestors of a given binary tree node without recursion
+        /// Given a Binary Tree and a key, write a function that prints all the ancestors of the key in the given binary tree.
+        /// </summary>
+        /// <param name="n"></param>
+        internal void PrintAncestors(Node n, int key)
+        {
+            // Check for null
+            if (n == null)
+            {
+                Console.WriteLine("Empty Tree.");
+                return;
+            }
+
+            // Use Stack to store all of it's ancestors.
+            Stack<Node> stack = new Stack<Node>();
+
+            // The flag to track if key is found or not. This is important cause we don't want to print
+            //  ancestors if key is NOT present in the BST
+            bool found = false;
+
+            // Run until key is found
+            while (n != null)
+            {
+                // Key found!
+                if (n.data == key)
+                {
+                    found = true;
+                    break;
+                } // Key must be on left
+                else if (key < n.data)
+                {
+                    stack.Push(n);
+                    n = n.left;
+                }// Key must be on the right
+                else
+                {
+                    stack.Push(n);
+                    n = n.right;
+                }
+            }
+
+            // Stack is empty and key not found. 
+            if (stack.Count == 0 || !found)
+            {
+                Console.WriteLine("No Ancestors or the key doesn't exist in BST.");
+                return;
+            }
+
+            // Key found, print all of its ancestors
+            while (stack.Count > 0)
+            {
+                Console.Write(stack.Pop().data + " ");
+            }
+            Console.WriteLine();
+        }
+        /// <summary>
         /// Print BST level by level separating each level by a line.
         /// Ref: http://stackoverflow.com/questions/2241513/java-printing-a-binary-tree-using-level-order-in-a-specific-format
         /// </summary>

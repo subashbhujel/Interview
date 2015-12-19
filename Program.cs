@@ -129,6 +129,7 @@ namespace InterviewPreparation
             bst.Add(90);
             bst.Add(48);
             bst.Add(50);
+            //bst.PrintAncestors(bst.root,21);
             //bst.PrintLevelByLevel(bst.root);
             //bst.PrintLevelByLevelInSeparateLine(bst.root);
             //bst.Print(bst.root);
