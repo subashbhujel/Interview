@@ -15,6 +15,70 @@ namespace InterviewPreparation.BST
         LinkedList<int> linkedList;
 
         /// <summary>
+        /// Print BST level by level separating each level by a line.
+        /// Ref: http://stackoverflow.com/questions/2241513/java-printing-a-binary-tree-using-level-order-in-a-specific-format
+        /// </summary>
+        /// <param name="n">Root node</param>
+        internal void PrintLevelByLevelInSeparateLine(Node n)
+        {
+            // Check for null
+            if (n == null) return;
+
+            // Use 2 Queues to store current level and next level
+            Queue<Node> current = new Queue<Node>();
+            Queue<Node> next = new Queue<Node>();
+
+            // Enque the first node
+            current.Enqueue(n);
+
+            // Run until current Q is not empty
+            while (current.Count > 0)
+            {
+                // Print a node and grab all of its children in next queue
+                foreach (Node temp in current)
+                {
+                    Console.Write(temp.data + " ");
+                    if (temp.left != null) next.Enqueue(temp.left);
+                    if (temp.right != null) next.Enqueue(temp.right);
+                }
+                // Empty new line print to indicate it's a new line
+                Console.WriteLine();
+
+                // Current becomes next and rest Next.
+                current = next;
+                next = new Queue<Node>();
+            }
+        }
+
+        /// <summary>
+        /// Print a BST level by level ie breadth first search
+        /// Note: This doesn't print level in a next line. See PrintLevelByLevelInSeparateLine()
+        /// </summary>
+        internal void PrintLevelByLevel(Node n)
+        {
+            // Check if node is null
+            if (n == null) return;
+
+            // Queue is used here to print level by level as we need FIFO DS
+            Queue<Node> q = new Queue<Node>();
+
+            // Enqueue the first node
+            q.Enqueue(n);
+
+            // Run until Q is empty
+            while (q.Count() > 0)
+            {
+                // Dequeue and print
+                Node temp = q.Dequeue();
+                Console.WriteLine(temp.data);
+
+                // Enqueue its left and right child, if exist.
+                if (temp.left != null) q.Enqueue(temp.left);
+                if (temp.right != null) q.Enqueue(temp.right);
+            }
+        }
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public BST()

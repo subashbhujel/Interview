@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InterviewPreparation.BST;
 
 namespace InterviewPreparation
 {
@@ -120,14 +121,16 @@ namespace InterviewPreparation
             #region BST
 
             BST.BST bst = new BST.BST();
-            //bst.Add(21);
-            //bst.Add(10);
-            //bst.Add(15);
-            //bst.Add(45);
-            //bst.Add(22);
-            //bst.Add(90);
-            //bst.Add(48);
-            //bst.Add(50);
+            bst.Add(21);
+            bst.Add(10);
+            bst.Add(15);
+            bst.Add(45);
+            bst.Add(22);
+            bst.Add(90);
+            bst.Add(48);
+            bst.Add(50);
+            //bst.PrintLevelByLevel(bst.root);
+            //bst.PrintLevelByLevelInSeparateLine(bst.root);
             //bst.Print(bst.root);
 
             //bst.FlattenABST(bst.root);

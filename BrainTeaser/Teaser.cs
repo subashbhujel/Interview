@@ -264,7 +264,7 @@ namespace InterviewPreparation
                 if (!x) continue;
 
                 bool y = IsPrime(i + 2);
-                // For efficiency. If x is NOT prime, no need to calculate below.
+                // For efficiency. If y is NOT prime, no need to calculate below.
                 if (!y) continue;
 
                 // Both values are prime and their differences is 2. 
