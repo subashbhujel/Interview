@@ -22,6 +22,7 @@ namespace InterviewPreparation
             int[] b_sorted = { 10, 20, 40, 50 };
             int[] binaryArray = { 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1 };
 
+            //array.FindMinCombination(4006);
             //array.PrintTheClosestPair(a_sorted, b_sorted, 32);
             //array.PrintLargestSum(array1D);
             //array.PrintInSpiralOrder(array2D);

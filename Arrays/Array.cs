@@ -9,6 +9,67 @@ namespace InterviewPreparation
     public class ArrayOperatios
     {
 
+
+        /// <summary>
+        ///Greedy Algorithm to find Minimum number of Coins
+        ///Given a value V, if we want to make change for V Rs, and we have infinite supply of each of the denominations in Indian currency, i.e., we have infinite supply of { 1, 2, 5, 10, 20, 50, 100, 500, 1000} valued coins/notes, what is the minimum number of coins and/or notes needed to make the change?
+        ///Examples:
+        ///Input: V = 70
+        ///Output: 2
+        ///We need a 50 Rs note and a 20 Rs note.
+        ///Input: V = 121
+        ///Output: 3
+        ///We need a 100 Rs note, a 20 Rs note and a 
+        ///1 Rs coin. 
+        ///
+        /// APPROACH:
+        /// The idea is simple Greedy Algorithm. Start from largest possible denomination and keep adding denominations while remaining value is greater than 0. Below is complete algorithm.
+        /// 1) Initialize result as empty.
+        /// 2) find the largest denomination that is 
+        /// smaller than V.
+        /// 3) Add found denomination to result. Subtract 
+        /// value of found denomination from V.
+        /// 4) If V becomes 0, then print result.  
+        /// Else repeat steps 2 and 3 for new value of V
+        /// </summary>
+        /// <param name="a"></param>
+        internal void FindMinCombination(int n)
+        {
+            // Available coins
+            int[] coins = { 1, 5, 10, 20, 50, 100, 500, 1000 };
+
+            // Stores the result ie the number of different denominations needed to make n
+            Stack<int> result = new Stack<int>();
+
+            // Run a loop from last to first
+            for (int i = coins.Length - 1; i >= 0; i--)
+            {
+                // Check if coins is less than or equal to n
+                if (coins[i] <= n)
+                {
+                    // Push the result
+                    result.Push(coins[i]);
+
+                    // deduct the value from n and continue
+                    n -= coins[i];
+
+                    // Increase the value of i because, you want to start from where it found 
+                    // a value that is less than or equal to cause you may need same denomination again.
+                    // Also because loop will decrement its value again.
+                    i++;
+                }
+
+                // If n is Zero, that means you found all the denominations. Exit.
+                if (n == 0) break;
+            }
+
+            // Print the result.
+            while (result.Count > 0)
+            {
+                Console.WriteLine(result.Pop());
+            }
+        }
+
         /// <summary>
         /// Find the closest pair from two sorted arrays
         /// Given two sorted arrays and a number x, find the pair whose sum is 
