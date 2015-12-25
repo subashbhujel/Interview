@@ -24,6 +24,20 @@ namespace InterviewPreparation
         /// ar2[] = {10, 20, 30, 40};
         /// x = 50      
         /// Output:  7 and 40
+        /// 
+        /// APPROACH:
+        /// Can we do it in a single pass and O(1) extra space?
+        /// The idea is to start from left side of one array and right side of another array, and use the algorithm same as step 2 of above approach. Following is detailed algorithm.
+        /// 1) Initialize a variable diff as infinite (Diff is used to store the 
+        /// difference between pair and x).  We need to find the minimum diff.
+        /// 2) Initialize two index variables l and r in the given sorted array.
+        /// (a) Initialize first to the leftmost index in ar1:  l = 0
+        /// (b) Initialize second  the rightmost index in ar2:  r = n-1
+        /// 3) Loop while l < m and r >= 0
+        /// (a) If  abs(ar1[l] + ar2[r] - sum) < diff  then update diff and result 
+        /// (b) Else if(ar1[l] + ar2[r] <  sum )  then l++
+        /// (c) Else r--    
+        /// 4) Print the result. 
         /// </summary>
         /// <param name="a"></param>
         internal void PrintTheClosestPair(int[] a, int[] b, int x)
@@ -55,11 +69,11 @@ namespace InterviewPreparation
                 }
 
                 // If value is greater than x, go to the smaller side
-                 if (a[left] + b[right] > x)
+                if (a[left] + b[right] > x)
                 {
                     right--;
                 }
-                     // If lesser, go to the bigger side
+                // If lesser, go to the bigger side
                 else { left++; }
             }
 
