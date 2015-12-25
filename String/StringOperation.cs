@@ -89,14 +89,7 @@
             // Convert everything to lowercase
             s = s.ToLowerInvariant();
 
-            // Convert it to char array
-            char[] c = s.ToCharArray();
-
-            // Convert ONLY the first char to uppercase and put it back
-            c[0] = Convert.ToChar(s[0].ToString().ToUpperInvariant());
-
-            // Convert char array to string and return
-            return new string(c);
+            return char.ToUpper(s[0]) + s.Substring(1);
         }
 
         /// <summary>
