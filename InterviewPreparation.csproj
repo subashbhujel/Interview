@@ -46,7 +46,7 @@
     <Compile Include="BrainTeaser\Stock.cs" />
     <Compile Include="BST\BST.cs" />
     <Compile Include="BST\Node.cs" />
-    <Compile Include="DesignPattern\Adaptor\User.cs"/>
+    <Compile Include="DesignPattern\Adaptor\User.cs" />
     <Compile Include="DesignPattern\Facotry\TravelTicket.cs" />
     <Compile Include="DesignPattern\Facotry\Vehicle.cs" />
     <Compile Include="DesignPattern\Singleton\DBConnection.cs" />
@@ -57,6 +57,7 @@
     <Compile Include="PowerOf2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queue\Queue.cs" />
     <Compile Include="Stack\Stack.cs" />
     <Compile Include="String\StringOperation.cs" />
   </ItemGroup>

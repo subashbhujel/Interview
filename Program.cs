@@ -18,8 +18,11 @@ namespace InterviewPreparation
 
             int[,] array2D = { { 1, 2, 3 }, { 3, 4, 4 }, { 5, 6, 6 }, { 7, 8, 9 } };
             int[] array1D = { 1, -2, 3, 4, -5, 6, 7, -8, 9 };
+            int[] a_sorted = { 1, 4, 5 };
+            int[] b_sorted = { 10, 20, 40, 50 };
             int[] binaryArray = { 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1 };
 
+            //array.PrintTheClosestPair(a_sorted, b_sorted, 32);
             //array.PrintLargestSum(array1D);
             //array.PrintInSpiralOrder(array2D);
             //array.ArrangeArray(array1D);

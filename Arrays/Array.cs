@@ -10,6 +10,64 @@ namespace InterviewPreparation
     {
 
         /// <summary>
+        /// Find the closest pair from two sorted arrays
+        /// Given two sorted arrays and a number x, find the pair whose sum is 
+        /// closest to x and the pair has an element from each array.
+        /// We are given two arrays ar1[0…m-1] and ar2[0..n-1] and a number x,
+        /// we need to find the pair ar1[i] + ar2[j] such that absolute value of (ar1[i] + ar2[j] – x) is minimum.
+        /// Example:
+        /// Input:  ar1[] = {1, 4, 5, 7};
+        /// ar2[] = {10, 20, 30, 40};
+        /// x = 32      
+        /// Output:  1 and 30
+        /// Input:  ar1[] = {1, 4, 5, 7};
+        /// ar2[] = {10, 20, 30, 40};
+        /// x = 50      
+        /// Output:  7 and 40
+        /// </summary>
+        /// <param name="a"></param>
+        internal void PrintTheClosestPair(int[] a, int[] b, int x)
+        {
+            int len1 = a.Length;
+            int len2 = b.Length;
+
+            // Empty array
+            if (len1 == 0 && len2 == 0) { return; }
+
+            // Initialize the diff between pair sum and x.
+            int diff = int.MaxValue;
+
+            // The two closest pair that is less than x
+            int t1 = int.MinValue, t2 = int.MinValue;
+
+            // LEft and right runner for loop.
+            int left = 0, right = len2 - 1;
+
+            //  Run a loop from left ro right on array 1 and righ to left on array 2
+            while (left < len1 && right >= 0)
+            {
+                // Update the diff and pairs if it's less than the current diff
+                if (Math.Abs(x - a[left] + b[right]) < diff)
+                {
+                    diff = Math.Abs(x - a[left] + b[right]);
+                    t1 = a[left];
+                    t2 = b[right];
+                }
+
+                // If value is greater than x, go to the smaller side
+                 if (a[left] + b[right] > x)
+                {
+                    right--;
+                }
+                     // If lesser, go to the bigger side
+                else { left++; }
+            }
+
+            // The final pairs that is closest to X
+            Console.WriteLine("{0} : {1},{2}", x, t1, t2);
+        }
+
+        /// <summary>
         /// Q. Print the largest sum that you can form from the given array.
         ///     Array is not sorted and can have negative or positive numbers.
         /// Example: {5,10,-7,5,10,-8,100}
