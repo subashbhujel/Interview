@@ -48,9 +48,6 @@
             specialWords.Add("in");
             specialWords.Add("the");
 
-            // Stores the result
-            StringBuilder result = new StringBuilder();
-
             // Loop until the last word
             for (int i = 0; i < arr.Length; i++)
             {
@@ -58,24 +55,18 @@
                 if (arr[i] == "") continue;
 
                 // Handle first and last words
-                if (i == 0 || i == arr.Length - 1)
+                if (i == 0 || i == arr.Length - 1 || !specialWords.Contains(arr[i]))
                 {
-                    result.Append(CapitalizeFirstLetter(arr[i]) + " ");
+                    arr[i] = CapitalizeFirstLetter(arr[i]);
                 }
                 else
                 {
-                    // Handle special word
-                    if (!specialWords.Contains(arr[i]))
-                    {
-                        result.Append(CapitalizeFirstLetter(arr[i]) + " ");
-                    }
-                    else // Rest of the words 
-                        result.Append(arr[i] + " ");
+                    arr[i] = arr[i];
                 }
             }
 
             // Print the result
-            Console.WriteLine("{0} : {1}", str, result.ToString());
+            Console.WriteLine("{0} : {1}", str, string.Join(" ", arr));
 
         }
 
