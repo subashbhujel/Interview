@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,34 @@ namespace InterviewPreparation
 {
     public class ArrayOperatios
     {
+        /// <summary>
+        /// The longest Increasing Subsequence (LIS) problem is to find the length of the longest 
+        /// subsequence of a given sequence such that all elements of the subsequence are sorted in 
+        /// increasing order. For example, length of LIS for { 10, 22, 9, 33, 21, 50, 41, 60, 80 }
+        /// is 6 and LIS is {10, 22, 33, 50, 60, 80}. 
+        /// </summary>
+        internal void FindLongestIncreasingSequence()
+        {
+            int[] a = { 0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15 };
+            List<int> list = new List<int>();
 
+            for (int i = 0; i < a.Length; i++)
+            {
+                int v = a[i];
+
+                if (list.Count == 0) list.Add(v);
+                else
+                {
+                    int l = list.Last();
+                    if (v < l)
+                    {
+                        //list.RemoveAt(list.Last);
+                    }
+
+                }
+
+            }
+        }
 
         /// <summary>
         ///Greedy Algorithm to find Minimum number of Coins

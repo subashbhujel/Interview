@@ -34,6 +34,7 @@ namespace InterviewPreparation
             #region Strings
 
             StringOperation strOpe = new StringOperation();
+            //strOpe.TitleCapitalization("thERe iS A small bIg tREE IN THe  backYARD");
             //Console.WriteLine(strOpe.ReverseAStringOnly("a&bcd$#"));
             //strOpe.RemoveSpaces("g  eeks   for ge  eeks  ");
             //Console.WriteLine(strOpe.ArrangeStringUsingKeys("bana#na", "abc"));

@@ -11,6 +11,93 @@
     /// </summary>
     class StringOperation
     {
+        /// <summary>
+        /// Rules:
+        ///     Always capitalize the first and last word
+        ///     Lowercase the following words unless they are first or last word:
+        ///         - a, and, at , in & the
+        ///     Uppercase the words not in the list above
+        ///     
+        /// A word is defined as a series of non-space characters.
+        /// 
+        /// Example: "wHY doES A bIRD Fly" => "Why Does a Bird Fly"
+        /// </summary>
+        /// <param name="str"></param>
+        internal void TitleCapitalization(string str)
+        {
+            // assigning to a local variable so we can convert them all to lowercase
+            string s = str;
+
+            // Check for the empty or null string
+            if (s.Length <= 0 || string.IsNullOrEmpty(s))
+            {
+                return;
+            }
+
+            // Convert it to lowercase
+            s = s.ToLowerInvariant();
+
+            // Change sentence to words
+            string[] arr = s.Split(' ');
+
+            // Construct a lookup table to check on special words
+            List<string> specialWords = new List<string>();
+            specialWords.Add("a");
+            specialWords.Add("and");
+            specialWords.Add("at");
+            specialWords.Add("in");
+            specialWords.Add("the");
+
+            // Stores the result
+            StringBuilder result = new StringBuilder();
+
+            // Loop until the last word
+            for (int i = 0; i < arr.Length; i++)
+            {
+                // User may have extra spaces like consecutive spaces, this will handle those case.
+                if (arr[i] == "") continue;
+
+                // Handle first and last words
+                if (i == 0 || i == arr.Length - 1)
+                {
+                    result.Append(CapitalizeFirstLetter(arr[i]) + " ");
+                }
+                else
+                {
+                    // Handle special word
+                    if (!specialWords.Contains(arr[i]))
+                    {
+                        result.Append(CapitalizeFirstLetter(arr[i]) + " ");
+                    }
+                    else // Rest of the words 
+                        result.Append(arr[i] + " ");
+                }
+            }
+
+            // Print the result
+            Console.WriteLine("{0} : {1}", str, result.ToString());
+
+        }
+
+        /// <summary>
+        /// Util method to capitalize a word
+        /// </summary>
+        /// <param name="s">String to capitalize</param>
+        /// <returns>String</returns>
+        private string CapitalizeFirstLetter(string s)
+        {
+            // Convert everything to lowercase
+            s = s.ToLowerInvariant();
+
+            // Convert it to char array
+            char[] c = s.ToCharArray();
+
+            // Convert ONLY the first char to uppercase and put it back
+            c[0] = Convert.ToChar(s[0].ToString().ToUpperInvariant());
+
+            // Convert char array to string and return
+            return new string(c);
+        }
 
         /// <summary>
         /// Remove spaces from a given string
