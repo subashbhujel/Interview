@@ -9,11 +9,93 @@ namespace InterviewPreparation
 {
     public class ArrayOperatios
     {
+
+        /// <summary>
+        /// Next Greater Element
+        /// Given an array, print the Next Greater Element (NGE) for every element. The Next greater Element for an element x is the first greater element on the right side of x in array. Elements for which no greater element exist, consider next greater element as -1.
+        /// 
+        /// Examples:
+        /// a) For any array, rightmost element always has next greater element as -1.
+        /// b) For an array which is sorted in decreasing order, all elements have next greater element as -1.
+        /// c) For the input array [4, 5, 2, 25}, the next greater elements for each element are as follows.
+        /// Element       NGE
+        /// 4      -->   5
+        /// 5      -->   25
+        /// 2      -->   25
+        /// 25     -->   -1
+        /// 
+        /// Ref: http://www.geeksforgeeks.org/next-greater-element/
+        /// 
+        /// APPROACH:
+        /// Obvious solution is to run two loops.
+        /// 
+        /// Here's one using Stack:
+        /// 1) Push the first element to stack.
+        /// 2) Pick rest of the elements one by one and follow following steps in loop.
+        /// ….a) Mark the current element as next.
+        /// ….b) If stack is not empty, then pop an element from stack and compare it with next.
+        /// ….c) If next is greater than the popped element, then next is the next greater element for the popped element.
+        /// ….d) Keep popping from the stack while the popped element is smaller than next. next becomes the next greater element for all such popped elements
+        /// ….g) If next is smaller than the popped element, then push the popped element back.
+        /// 3) After the loop in step 2 is over, pop all the elements from stack and print -1 as next element for them.
+        /// </summary>
+        internal void FindNextGreaterNumber()
+        {
+            int[] a = { 4, 5, 2, 25, 1 };
+
+            Stack<int> s = new Stack<int>();
+            
+            // Push the first element to a stack
+            s.Push(a[0]);
+
+            // iterate for rest of the elements
+            for (int i = 1; i < a.Length; i++)
+            {
+                // Get the next element
+                int next = a[i];
+
+                // Stack empty?
+                if (s.Count > 0)
+                {
+                    // Pop an element
+                    int element = s.Pop();
+
+                    // Popped element is smaller than next element. Print them.
+                    while (element < next)
+                    {
+                        Console.WriteLine("{0} -> {1}", element, next);
+                     
+                        // If stack if empty, break. Pop otherwise.
+                        if (s.Count() == 0) break;
+                        element = s.Pop();
+                    }
+
+                    // Element is greater than the next element, push it back. So you can find it's next greater element later.
+                    if (element > next)
+                    {
+                        s.Push(element);
+                    }
+                }
+
+                // Push the next element so you can look for it's NGN later.
+                s.Push(next);
+            }
+
+            // Rest of the stack element doesn't have next greater number. Print -1 for all of them.
+            while (s.Count != 0)
+            {
+                Console.WriteLine("{0} -> {1}", s.Pop(), -1);
+            }
+        }
+
         /// <summary>
         /// The longest Increasing Subsequence (LIS) problem is to find the length of the longest 
         /// subsequence of a given sequence such that all elements of the subsequence are sorted in 
         /// increasing order. For example, length of LIS for { 10, 22, 9, 33, 21, 50, 41, 60, 80 }
         /// is 6 and LIS is {10, 22, 33, 50, 60, 80}. 
+        /// REf: geeks for geeks.
+        /// 
+        /// NOTE: NOT solved yet.
         /// </summary>
         internal void FindLongestIncreasingSequence()
         {
