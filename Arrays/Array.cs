@@ -122,25 +122,27 @@ namespace InterviewPreparation
 
         /// <summary>
         ///Greedy Algorithm to find Minimum number of Coins
-        ///Given a value V, if we want to make change for V Rs, and we have infinite supply of each of the denominations in Indian currency, i.e., we have infinite supply of { 1, 2, 5, 10, 20, 50, 100, 500, 1000} valued coins/notes, what is the minimum number of coins and/or notes needed to make the change?
-        ///Examples:
-        ///Input: V = 70
-        ///Output: 2
-        ///We need a 50 Rs note and a 20 Rs note.
-        ///Input: V = 121
-        ///Output: 3
-        ///We need a 100 Rs note, a 20 Rs note and a 
-        ///1 Rs coin. 
+        ///Given a value V, if we want to make change for V Rs, and we have infinite supply of each of the denominations in Indian currency, 
+        ///i.e., we have infinite supply of { 1, 2, 5, 10, 20, 50, 100, 500, 1000} valued coins/notes, what is the minimum number of coins 
+        ///and/or notes needed to make the change?
+        ///
+        /// Examples:
+        ///     Input: V = 70
+        ///     Output: 2
+        ///         We need a 50 Rs note and a 20 Rs note.
+        ///
+        ///     Input: V = 121
+        ///     Output: 3
+        ///         We need a 100 Rs note, a 20 Rs note and a 1 Rs coin. 
         ///
         /// APPROACH:
-        /// The idea is simple Greedy Algorithm. Start from largest possible denomination and keep adding denominations while remaining value is greater than 0. Below is complete algorithm.
-        /// 1) Initialize result as empty.
-        /// 2) find the largest denomination that is 
-        /// smaller than V.
-        /// 3) Add found denomination to result. Subtract 
-        /// value of found denomination from V.
-        /// 4) If V becomes 0, then print result.  
-        /// Else repeat steps 2 and 3 for new value of V
+        /// The idea is simple Greedy Algorithm. Start from largest possible denomination and keep adding denominations while remaining value is greater than 0. 
+        /// 
+        /// Below is complete algorithm.
+        ///     1) Initialize result as empty.
+        ///     2) find the largest denomination that is smaller than V.
+        ///     3) Add found denomination to result. Subtract value of found denomination from V.
+        ///     4) If V becomes 0, then print result.  Else repeat steps 2 and 3 for new value of V
         /// </summary>
         /// <param name="a"></param>
         internal void FindMinCombination(int n)
@@ -181,34 +183,40 @@ namespace InterviewPreparation
         }
 
         /// <summary>
-        /// Find the closest pair from two sorted arrays
+        /// Q. Find the closest pair from two sorted arrays
         /// Given two sorted arrays and a number x, find the pair whose sum is 
         /// closest to x and the pair has an element from each array.
         /// We are given two arrays ar1[0…m-1] and ar2[0..n-1] and a number x,
         /// we need to find the pair ar1[i] + ar2[j] such that absolute value of (ar1[i] + ar2[j] – x) is minimum.
-        /// Example:
+        /// 
+        /// Examples:
         /// Input:  ar1[] = {1, 4, 5, 7};
-        /// ar2[] = {10, 20, 30, 40};
-        /// x = 32      
-        /// Output:  1 and 30
+        ///         ar2[] = {10, 20, 30, 40};
+        ///         x = 32      
+        ///         Output:  1 and 30
+        /// 
         /// Input:  ar1[] = {1, 4, 5, 7};
-        /// ar2[] = {10, 20, 30, 40};
-        /// x = 50      
-        /// Output:  7 and 40
+        ///         ar2[] = {10, 20, 30, 40};
+        ///         x = 50      
+        ///         Output:  7 and 40
         /// 
         /// APPROACH:
         /// Can we do it in a single pass and O(1) extra space?
-        /// The idea is to start from left side of one array and right side of another array, and use the algorithm same as step 2 of above approach. Following is detailed algorithm.
-        /// 1) Initialize a variable diff as infinite (Diff is used to store the 
-        /// difference between pair and x).  We need to find the minimum diff.
-        /// 2) Initialize two index variables l and r in the given sorted array.
-        /// (a) Initialize first to the leftmost index in ar1:  l = 0
-        /// (b) Initialize second  the rightmost index in ar2:  r = n-1
-        /// 3) Loop while l < m and r >= 0
-        /// (a) If  abs(ar1[l] + ar2[r] - sum) < diff  then update diff and result 
-        /// (b) Else if(ar1[l] + ar2[r] <  sum )  then l++
-        /// (c) Else r--    
-        /// 4) Print the result. 
+        /// 
+        /// The idea is to start from left side of one array and right side of another array, 
+        /// and use the algorithm same as step 2 of above approach. 
+        /// 
+        /// Following is detailed algorithm.
+        ///     1) Initialize a variable diff as infinite (Diff is used to store the difference between pair and x). 
+        ///         We need to find the minimum diff.
+        ///     2) Initialize two index variables l and r in the given sorted array.
+        ///         (a) Initialize first to the leftmost index in ar1:  l = 0
+        ///         (b) Initialize second  the rightmost index in ar2:  r = n-1
+        ///     3) Loop while l < m and r >= 0
+        ///         (a) If  abs(ar1[l] + ar2[r] - sum) < diff  then update diff and result 
+        ///         (b) Else if(ar1[l] + ar2[r] <  sum )  then l++
+        ///         (c) Else r--    
+        ///     4) Print the result. 
         /// </summary>
         /// <param name="a"></param>
         internal void PrintTheClosestPair(int[] a, int[] b, int x)
