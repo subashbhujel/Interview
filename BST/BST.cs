@@ -16,7 +16,8 @@ namespace InterviewPreparation.BST
 
         /// <summary>
         /// Print ancestors of a given binary tree node without recursion
-        /// Given a Binary Tree and a key, write a function that prints all the ancestors of the key in the given binary tree.
+        /// Given a Binary Tree and a key, write a function that prints all the ancestors of 
+        /// the key in the given binary tree.
         /// </summary>
         /// <param name="n"></param>
         internal void PrintAncestors(Node n, int key)
@@ -70,6 +71,7 @@ namespace InterviewPreparation.BST
             }
             Console.WriteLine();
         }
+
         /// <summary>
         /// Print BST level by level separating each level by a line.
         /// Ref: http://stackoverflow.com/questions/2241513/java-printing-a-binary-tree-using-level-order-in-a-specific-format
@@ -87,7 +89,7 @@ namespace InterviewPreparation.BST
             // Enque the first node
             current.Enqueue(n);
 
-            // Run until current Q is not empty
+            // Run until current Queue is not empty
             while (current.Count > 0)
             {
                 // Print a node and grab all of its children in next queue
@@ -108,7 +110,7 @@ namespace InterviewPreparation.BST
 
         /// <summary>
         /// Print a BST level by level ie breadth first search
-        /// Note: This doesn't print level in a next line. See PrintLevelByLevelInSeparateLine()
+        /// Note: This doesn't print level in a next line. See PrintLevelByLevelInSeparateLine().
         /// </summary>
         internal void PrintLevelByLevel(Node n)
         {
@@ -199,14 +201,15 @@ namespace InterviewPreparation.BST
         }
 
         /// <summary>
-        /// K’th Largest Element in BST when modification to BST is not allowed
-        /// Given a Binary Search Tree (BST) and a positive integer k, find the k’th largest element in the Binary Search Tree.
+        /// Q. K’th Largest Element in BST when modification to BST is not allowed
+        ///     Given a Binary Search Tree (BST) and a positive integer k, find the k’th largest element 
+        ///     in the Binary Search Tree.
         /// </summary>
         /// <param name="temp">Root node</param>
         /// <returns>Kth largest element</returns>
         public void FindKthLargestElement(Node temp, int k)//, ref int count)
         {
-            // NOTE: NOT cpmletely solved. It prints more elements right now.
+            // NOTE: NOT completely solved. It prints more elements right now.
             if (temp != null || k < 0) return;
 
             FindKthLargestElement(temp.right, k);

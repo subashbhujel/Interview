@@ -9,7 +9,7 @@ namespace InterviewPreparation.DesignPattern.Singleton
     // Class is sealed to prevent derivation, which could add instances.
     public sealed class DBConnection
     {
-        // Get the DBConnection Instance the furst tiem any member of the class is referenced.
+        // Get the DBConnection Instance the first time any member of the class is referenced.
         private static readonly DBConnection instance = new DBConnection();
 
         private DBConnection() { }
