@@ -46,6 +46,8 @@
     <Compile Include="BrainTeaser\Stock.cs" />
     <Compile Include="BST\BST.cs" />
     <Compile Include="BST\Node.cs" />
+    <Compile Include="BST\Node2.cs" />
+    <Compile Include="BST\Tree.cs" />
     <Compile Include="DesignPattern\Adaptor\User.cs" />
     <Compile Include="DesignPattern\Facotry\TravelTicket.cs" />
     <Compile Include="DesignPattern\Facotry\Vehicle.cs" />
