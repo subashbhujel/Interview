@@ -48,7 +48,8 @@ namespace InterviewPreparation.Stack
             if (list.Count == 0)
             {
                 Console.WriteLine("Empty Stack!");
-                // Throw a (custom) exception for empty stack and handle at the calling side. But I'm returning minvalue for ease here.
+                // Throw a (custom) exception for empty stack and handle at the calling side. 
+                // But I'm returning minvalue for ease here.
                 return int.MinValue;
             }
 

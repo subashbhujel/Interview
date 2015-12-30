@@ -37,15 +37,13 @@ namespace InterviewPreparation
                 }
 
                 //Fast travels twice the speed
-                if (fast.next != null)
-                    fast = fast.next;
+                if (fast.next != null && fast.next.next != null)
+                {
+                    fast = fast.next.next;
+                }
                 else
                     return;
 
-                if (fast.next != null)
-                    fast = fast.next;
-                else
-                    return;
 
                 // Slow travesl one speed
                 slow = slow.next;
@@ -57,7 +55,6 @@ namespace InterviewPreparation
                 }
             }
 
-            //temp1 = fast;
             while (fast.next != slow)
             {
                 len++;
@@ -355,13 +352,13 @@ namespace InterviewPreparation
         /// <param name="linkedList">Linked list</param>
         public void Reverse(LList linkedList)
         {
-            Node temp = head;
+            Node cur = head;
             Node pre = null;
             Node next = null;
 
-            if (temp == null)
+            if (cur == null)
             {
-                Console.WriteLine(" Empty Linkedlist");
+                Console.WriteLine("Empty Linkedlist");
                 return;
             }
 
@@ -369,63 +366,18 @@ namespace InterviewPreparation
             Print();
 
             // Run a loop unti it reaches end of the linked list.
-            while (temp != null)
+            while (cur != null)
             {
-                next = temp.next;
-                temp.next = pre;
-                pre = temp;
-                temp = next;
+                next = cur.next;
+                cur.next = pre;
+                pre = cur;
+                cur = next;
             }
 
             head = pre;
             Console.WriteLine("Before::");
             Print();
-        }
-
-        public void ReverseAList()
-        {
-            if (IsListEmpty())
-            {
-                Console.WriteLine("List is empty.");
-                return;
-            }
-
-            // Case 1: List has only one node.
-            if (head.next == null)
-            {
-                return;
-            }
-            else if (head.next.next == null)
-            {
-                temp1 = head;
-                temp2 = temp1.next;
-                temp2.next = temp1;
-                temp1.next = null;
-                head = temp2;
-                return;
-            }
-            else
-            {
-                temp1 = head;
-                temp2 = temp1.next;
-                Node temp3 = temp2.next;
-
-                // End of the list
-                temp1.next = null;
-
-                while (temp3.next != null)
-                {
-                    temp2.next = temp1;
-                    temp1 = temp2;
-                    temp2 = temp3;
-                    temp3 = temp3.next;
-                }
-
-                temp2.next = temp1;
-                temp3.next = temp2;
-                head = temp3;
-            }
-        }
+        }       
 
         public void PrintNthPosition(int pos)
         {
